@@ -1,0 +1,938 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\graphicspath{{./}}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[section]{placeins}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{commath}
+
+\title{Lecture Notes Mathematical Physics}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Part 1: Sequences \& Series}
+\subsection{Sequences basics}
+A sequence is thought of as a list of numbers in definite order, denoted as $\{a_n\}$ meaning $\{a_1, a_2, ..., a_n\}$. This sequence has a limit namely
+\begin{equation}
+    \lim_{n\rightarrow\infty} a_n = L
+\end{equation}
+If $\forall\epsilon>0\ \exists N\ \Rightarrow\  n>N$ then $|a_n-L|<\epsilon$. And if this limit exists, the sequence converges otherwise it is divergent. 
+\subsubsection*{Squeeze theorem}
+Like limits of functions we can also define the squeeze theorem for sequences, namely if $a_n\le b_n \le c_n$ for $n\ge n_0$ and
+\begin{equation}
+    \lim_{n\rightarrow\infty} a_n = \lim_{n\rightarrow\infty} c_n = L\quad \Rightarrow\quad \lim_{n\rightarrow\infty} b_n = L
+\end{equation}
+
+\subsubsection*{Theorem}
+If $\lim_{n\rightarrow\infty} |a_n| = 0$ then $\lim_{n\rightarrow\infty} a_n = 0$.
+
+\subsubsection*{Definition increasing / decreasing}
+A sequence is increasing if $a_n<a_{n+1}$ for $n>0$. And decreasing if $a_n>a_{n+1}$ for $n>0$. And a sequence is called monotonic if it is either one.
+
+\subsubsection*{Definition bounded from above / below}
+A sequence is bounded above if there is a number $M$ such that $a_n\le M$ for $n>0$. And it is bounded from below if there is a number $m$ such that $a_n\ge m$ for $n>0$. It is called bounded if it is bounded in both \textit{directions}. 
+
+\subsubsection*{Monotonic sequence theorem}
+Every bounded, monotonic sequence is convergent!
+
+\subsection{Series basics}
+A series is the infinite sum of a sequence, denoted by $\sum_{n=1}^{\infty}a_n$. If a series is convergent and the limit of the sequence is $s$ then we can write the sum as $\sum_{n=1}^{\infty}a_n=s$.
+
+\subsubsection*{Theorem}
+If the series $\sum_{n=1}^{\infty}a_n$ is convergent, then $\lim_{n\rightarrow\infty} a_n=0$. (The converse is not true in general!)
+
+\subsubsection*{Absolutely convergent}
+A series $\sum a_n$ is called absolutely convergent if the series of absolute values $\sum |a_n|$ is convergent.
+
+\subsubsection*{Conditionally convergent}
+A series $\sum a_n$ is absolutely convergent, then it is convergent.
+
+\subsubsection*{Theorem}
+A series $\sum a_n$ is called conditionally convergent if it is convergent but not absolutely convergent.
+
+\subsubsection*{Series rearrangement}
+We can rearrange a series by changing the order of the terms. If $\sum a_n$ is an absolutely convergent series with sum $s$, then any rearrangement of $\sum a_n$ has the same sum $s$. On the other hand if the series is conditionally convergent and $r$ is any real number whatsoever, then there is a rearrangement of $\sum a_n$ that has a sum equal to $r$.
+
+\subsection{Geometric series}
+The geometric series is defined as
+
+\begin{equation}
+    a+ar+\dots+ar^{n-1}+\dots=\sum_{n=1}^{\infty} ar^{n-1}
+\end{equation}
+
+For which we can obtain (for $|r|<1$)
+
+\begin{equation}
+    s_n=a\bigg[\frac{1-r^n}{1-r}\bigg]\quad\Rightarrow\quad \lim_{n\rightarrow\infty} s_n = \frac{a}{1-r}
+\end{equation}
+
+Therefore
+
+\begin{equation}
+    \sum_{n=1}^{\infty} ar^{n-1} = \frac{a}{1-r}\quad |r|<1
+\end{equation}
+
+\subsection{P-Series}
+The p-series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ is convergent if $p>1$ and divergent if $p\le 1$.
+
+\subsection{Power series}
+A power series is a series of the form
+
+\begin{equation}
+    \sum_{n=0}^{\infty}x^n=c_0+c_1x+c_2x^2+\dots
+\end{equation}
+
+More generally,
+
+\begin{equation}
+    \sum_{n=0}^{\infty}c_n(x-a)^n=c_0+c_1(x-a)+c_2(x-a)^2+\dots
+\end{equation}
+
+For the last series, (i) it converges when $x=a$, (ii) it converges for all $x$, and (iii) there is a positive number $R$ such that the series converges if $|x-a|<R$ and diverges if $|x-a|>R$. Where $R$ is called the \textbf{radius of convergence} of the power series. $R=0$ for (i) and $R=\infty$ for (ii). And the \textbf{interval of convergence} of a power series is the interval of all $x$ values for which the series converges.
+
+\subsection{Tests for divergence \& convergence}
+\subsubsection*{Divergence test}
+If $\lim_{n\rightarrow\infty} a_n$ does not exist or if $\lim_{n\rightarrow\infty} a_n\not=0$, then the series is 
+divergent.
+
+\subsubsection*{Integral test}
+Let $f$ be a continuous, positive, decreasing function and let $a_n=f(n)$. Then the series $\sum a_n$ is convergent iff the improper integral from $1$ to $\infty$ is convergent.
+
+\begin{enumerate}
+    \item If $\int_{1}^{\infty}f(x)\,dx$ is convergent then $\sum_{1}^{\infty} a_n$ is convergent.
+    \item If $\int_{1}^{\infty}f(x)\,dx$ is divergent then $\sum_{1}^{\infty} a_n$ is divergent. 
+\end{enumerate}
+
+We need to estimate the remainder $R_n=s-s_n$. Suppose $f(k)=a_k$, where $f$ is a continuous, positive, decreasing function for $x\ge n$ and $\sum a_n$ is convergent. If $R_n=s-s_n$, then
+
+\begin{equation}
+    \int_{n+1}^{\infty}f(x)\,dx\le R_n\le \int_{n}^{\infty}f(x)\,dx
+\end{equation}
+
+\subsubsection*{Comparison test}
+Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms.
+\begin{enumerate}
+    \item If $\sum b_n$ is convergent and $a_n\le b_n$ for all $n$, then $\sum a_n$ is also convergent.
+    \item If $\sum b_n$ is divergent and $a_n\ge b_n$ for all $n$, then $\sum a_n$ is also divergent.
+\end{enumerate}
+
+\subsubsection*{Limit comparison test}
+Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms. If 
+\begin{equation}
+    \lim_{n\rightarrow\infty}\frac{a_n}{b_n}=c
+\end{equation}
+where $c$ is a finite number and $c>0$, then either both series converge or both diverge. [Note: if $c=0$ then the series either converges of diverges.]
+
+\subsubsection*{Alternating series test}
+An alternating series is a series whose terms are alternately positive and negative. If the alternating series 
+
+\begin{equation}
+    \sum_{n=1}^{\infty} (-1)^{n-1}b_n=b_1-b_2+b_3-b_4+\dots\quad b_n>0
+\end{equation}
+
+satisfies $b_{n+1}\le b_n$ for all $n$ and $\lim_{n\rightarrow\infty}b_n=0$. Then the series is convergent. Then the remainder is estimated as $|R_n|=|s-s_n|\le b_{n+1}$.
+
+\subsubsection*{Ratio test}
+(i) If 
+
+\begin{equation}
+    \lim_{n\rightarrow\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|= L < 1
+\end{equation}
+
+then the series $\sum a_n$ is absolutely convergent. (ii) If 
+
+\begin{equation}
+    \lim_{n\rightarrow\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|= L > 1\quad\text{or}\quad \infty
+\end{equation}
+
+then the series $\sum a_n$ is divergent. (iii) If 
+
+\begin{equation}
+    \lim_{n\rightarrow\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|= L = 1
+\end{equation}
+
+then the test is inconclusive.
+
+\subsubsection*{Root test}
+(i) If 
+
+\begin{equation}
+    \lim_{n\rightarrow\infty}|a_n|^{1/n}= L < 1
+\end{equation}
+
+then the series $\sum a_n$ is absolutely convergent. (ii) If 
+
+\begin{equation}
+    \lim_{n\rightarrow\infty}|a_n|^{1/n}= L > 1 or \infty
+\end{equation}
+
+then the series $\sum a_n$ is divergent. (iii) If 
+
+\begin{equation}
+    \lim_{n\rightarrow\infty}|a_n|^{1/n}= L = 1
+\end{equation}
+
+then the test is inconclusive.
+
+\subsection{Function representation by power series}
+If the power series $\sum c_n(x-a)^n$ has $R>0$, then for $f(x)=\sum_{n=0}^{\infty} c_n(x-a)^n$ on the interval $(a-R, a+R)$ we can differentiate $f(x)$ as
+
+\begin{equation}
+    f'(x)=\sum_{n=0}^{\infty}\frac{d}{dx}\big[c_n(x-a)^n\big]
+\end{equation}
+
+and integrated as
+
+\begin{equation}
+    \int f(x)\,\dif x=\sum_{n=0}^{\infty}\int c_n(x-a)^n\,\dif x
+\end{equation}
+
+Note that although $R$ stays the same after integration and / or differentiation, the interval of convergence might be changed.
+
+\subsection{Taylor series}
+\subsubsection*{Definition}
+If  $f(x)=\sum_{n=0}^{\infty}c_n(x-a)^n$ for $|x-a|<R$ then 
+
+\begin{equation}
+    c_n=\frac{f^{(n)}(a)}{n!}
+\end{equation}
+
+then we obtain
+
+\begin{equation}
+    f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
+\end{equation}
+
+Which we call a \textbf{Taylor series}, if $a=0$ we call it a \textbf{Maclaurin series}.
+
+\subsubsection*{Theorem}
+If $f(x)=T_n(x)+R_n(x)$, where $T_n$ is the $n$th-degree Taylor polynomial of $f$ at $a$ and
+
+\begin{equation}
+    \lim_{n\rightarrow\infty}R_n(x)=0
+\end{equation}
+
+for $|x-a|<R$, then $f$ is equal to the sum of its Taylor series on the interval $|x-a|<R$.
+
+\subsection{Binomial series}
+If $k$ is a real number and $|x|<1$, then
+\begin{equation}
+    (1+x)^k=\sum_{n=0}^{\infty}\binom{k}{n}x^n=1+kx+\frac{k(k-1)}{2!}x^2+\frac{k(k-1)(k-2)}{3!}+\dots
+\end{equation}
+
+where 
+
+\begin{equation}
+    \binom{k}{n}=\frac{k!}{n!(k-n)!}
+\end{equation}
+
+\section{Part 2: Second Order Differential Equations}
+
+Second order differential equations are of the form
+
+\begin{equation}
+    P(x)\frac{d^2y}{dx^2}+Q(x)\frac{dy}{dx}+R(x)y=G(x)
+\end{equation}
+
+If $G(x)=0$ then the equation is called a homogeneous linear equation.
+
+\subsection{Linear homogeneous equations}
+
+\subsubsection*{Theorem}
+
+If $y_1(x)$ and $y_2(x)$ are both solutions for the homogeneous equation then 
+
+\begin{equation}
+    y(x)=c_1y_1(x)+c_2y_2(x)
+\end{equation}
+
+is also a solution.
+
+\subsubsection*{Theorem}
+
+If $y_1(x)$ and $y_2(x)$ are linearly independant solutions for the homogeneous equation, and $P(x)\not=0$, then the general solution is given by
+
+\begin{equation}
+    y(x)=c_1y_1(x)+c_2y_2(x)
+\end{equation}
+
+\subsection{Solving a linear homogeneous equation}
+
+Assume a differential equation
+
+\begin{equation}
+    ay''(t)+by'(t)+cy(t)=0
+\end{equation}
+
+Then we can use a substitution with $y=e^{rt}$ so that we get the auxiliary equation / characteristic equation
+
+\begin{equation}
+    ar^2+br+c=0
+\end{equation}
+
+With solutions
+
+\begin{equation}
+    r_1=\frac{-b+\sqrt{b^2-4ac}}{2a}\quad\text{and}\quad r_2=\frac{-b-\sqrt{b^2-4ac}}{2a}
+\end{equation}
+
+Then the general solutions to the differential equation are given as follows:
+
+\begin{enumerate}
+    \item If $r_1$ and $r_2$ are real and distinct then $y=c_1e^{r_1t}+c_2e^{r_2t}$.
+    \item If $r_1=r_2=r$ then $y=c_1e^{rt}+c_2te^{rt}$.
+    \item If $r_1$ and $r_2$ ($r_{1,2}=\alpha\pm i\beta$) are complex then $y=e^{\alpha t}(c_1\cos\beta t + c_2\sin \beta t)$.
+\end{enumerate}
+
+\subsection{Nonhomogeneous linear equations}
+
+Again they are of the form
+
+\begin{equation}
+    ay''+by'+cy=G(t)    
+\end{equation}
+
+\subsubsection*{Theorem}
+
+The solution of the nonhomogeneous equation is given as 
+
+\begin{equation}
+    y(t)=y_p(t)+y_c(t)
+\end{equation}
+
+where $y_c$ is the complementary solution (the solution to the homogeneous case) and $y_p$ is a particular solution to the nonhomogeneous equation.
+
+\subsubsection*{The method of undetermined coefficients}
+
+If we have $ay''+by'+cy=G(t)$ then $y_p(t)$, the particular solution can be guessed by this method as
+
+\begin{enumerate}
+    \item If $G(t)=P(t)e^{kt}$, where $P(t)$ is an $n$th-degree polynomial, then try $$y_p(t)=Q(t)e^{kt}$$
+    \item If $G(t)=P(t)e^{kt}\cos(mt)$ or $G(t)=P(t)e^{kt}\sin(mt)$, then try $$y_p(t)=Q(t)e^{kt}\cos(mt) + R(t)e^{kt}\sin(mt)$$
+\end{enumerate}
+
+And if terms of $y_p(t)$ are a solution to the complementary equation then multiply it by some power of $t$.
+
+\subsubsection*{The method of variation of parameters}
+
+Suppose we found the complementary solution $y_c(t)=c_1y_1(t)+c_2y_2(t)$ to $ay''+by'+cy=G(t)$. To find a particular solution we will try to find a pair of functions such that $c_1=u_1(t)$ and $c_2=u_2(t)$. So that we obtain a particular solution like
+
+\begin{equation}
+    y_p(t)=u_1(t)y_1(t)+u_2(t)y_2(t)
+\end{equation}
+
+To find the pair of functions we make the following assumption
+
+\begin{equation}
+    u_1'y_1+u_2'y_2=0
+\end{equation}
+
+Next we make the assumption that $a=1$, so that we obtain
+
+\begin{equation}
+    u_1'y_1'+u_2'y_2'=G(t)
+\end{equation}
+
+From the last two equations we can, by substituting the former into the latter, solve for either one of the functions. Therefore
+
+\begin{equation}
+    u_1(t)=-\int \frac{y_2G(t)}{y_1y_2'-y_1'y_2}\,dt \quad\text{and}\quad u_2'=\int \frac{y_1G(t)}{y_1y_2'-y_1'y_2}\,dt
+\end{equation}
+
+Given that $y_1y_2'-y_1'y_2\not=0$. In the end we obtain
+
+\begin{equation}
+    y_p(t)= -y_1\int \frac{y_2G(t)}{y_1y_2'-y_1'y_2}\,dt+y_2\int \frac{y_1G(t)}{y_1y_2'-y_1'y_2}\,dt
+\end{equation}
+
+\subsection{Applications of 2nd order differential equations}
+
+\subsubsection*{Vibrating springs}
+\begin{equation}
+    m\frac{d^2x}{dt^2}+kx=0
+\end{equation}
+
+where $k$ is the spring constant, a positive constant. We can solve it by noting it has the auxiliary equation $mr^2+k=0$, which has the solution $r=\pm\sqrt{k/m}=\pm\omega$. So it has a general solution
+
+\begin{equation}
+    x(t)=c_1\cos(\omega t)+c_2\sin(\omega t)\quad\Rightarrow\quad x(t)=A\cos(\omega t+\delta)
+\end{equation}
+
+In the latter case $A=\sqrt{c_1^2+c_2^2}$, $\cos\delta=c_1/A$, and $\sin\delta=-c_2/A$.
+
+\subsubsection*{Damped vibrations}
+\begin{equation}
+    m\frac{d^2x}{dt^2}+c\frac{dx}{dt}+kx=0
+\end{equation}
+
+where $c$ is the damping constant, again a positive constant. To solve it we first find the auxiliary equation $mr^2+cr+k=0$, with roots
+
+\begin{equation}
+    r_{1,2}=\frac{-c\pm\sqrt{c^2-4mk}}{2m}
+\end{equation}
+
+Thus we have three possible cases for a solution:
+
+\begin{enumerate}
+    \item Overdamping ($c^2-4mk>0$): We have a solution of the form $$x(t)=c_1e^{r_1t}+c_2e^{r_2t}$$ with $\sqrt{c^2-4mk}<c$, so $r_1$ and $r_2$ should both be negative. Therefore $x(t)\rightarrow 0$ as $t\rightarrow 0$.
+    \item Critical damping ($c^2-4mk=0$): In this case $r_1=r_2=-c/2m$, and we have a solution of the form $$x(t)=(c_1+c_2t)e^{-(c/2m)t}$$ here the damping is just sufficient to suppress any vibrations.
+    \item Underdamping ($c^2-4mk<0$): The roots are now complex such that $$r_{1,2}=-\frac{c}{2m}\pm\omega i$$ where $$\omega=\frac{\sqrt{4mk-c^2}}{2m}$$ such that the solution has the form $$x(t)=e^{-(c/2m)t}(c_1\cos\omega t+c_2\sin\omega t)$$ thus the oscillations are damped by the factor $e^{-(c/2m)t}$. Again we have that $x(t)\rightarrow 0$ as $t\rightarrow 0$.
+\end{enumerate}
+
+
+\subsubsection*{Forced vibrations}
+
+\begin{equation}
+    m\frac{d^2x}{dt^2}+c\frac{dx}{dt}+kx=F(t)
+\end{equation}
+
+$F(t)=F_0\cos\omega_0 t$ would be a commonly occurring type of external force, note that $\omega_0\not=\omega$. To solve this equation one could use the method of undetermined coefficients. Note also that if $\omega_0=\omega$, then the applied frequency will reinforce the natural frequency and resonance will occur.
+
+\subsubsection*{Electric circuits}
+
+Another application would be electric circuits, such that one would have an equation like
+
+\begin{equation}
+    L\frac{d^2Q}{dt^2}+R\frac{dQ}{dt}+\frac{Q}{C}=E(t)
+\end{equation}
+
+\subsection{Series solutions}
+
+Often differential equations cannot be solved in terms of finite combinations of simple familiar functions, in this case we try a solution in the form of a power series
+
+\begin{equation*}
+    y=\sum_{n=0}^{\infty} c_nt^n
+\end{equation*}
+
+such that 
+
+\begin{equation*}
+    y'=\sum_{n=1}^{\infty} c_nnt^{n-1}
+\end{equation*}
+
+and 
+
+\begin{equation*}
+    y''=\sum_{n=2}^{\infty} c_nn(n-1)t^{n-2}
+\end{equation*}
+
+\section{Fourier Series}
+
+\subsection{Definition}
+
+A \textbf{Fourier Series} is a series of the form 
+
+\begin{equation*}
+    f(x)=a_0 + \sum_{n=1}^{\infty} (a_n\cos nx + b_n\sin nx)
+\end{equation*}
+
+defined for $x\in[-\pi, \pi]$, so that $f$ is a piecewise continuous function. To find equations for $a_n$ and $b_n$ (so called \textbf{Fourier coefficients}) we integrate $f(x)$ over the boundaries on $x$. We find
+
+\begin{equation*}
+    a_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\,\cos nx\,dx\quad\text{and}\quad b_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\,\sin nx\,dx\quad\text{for}\quad n=1, 2, 3,\dots
+\end{equation*}
+
+and for $a_0$ we find
+
+\begin{equation*}
+    a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\,dx
+\end{equation*}
+
+\subsection{Fourier Convergence Theorem}
+
+If $f$ is a periodic function with period $2\pi$ and $f\&f'$ are piecewise continuous on $[-\pi, \pi]$, then the Fourier series is convergent.
+
+\bigskip
+
+The sum of the Fourier series is equal to $f(x)$ at all numbers $x$ where $f$ is continuous. At the number $x$ where $f$ is discontinuous, the sum of the Fourier series is the average of the right and left limits, that is
+
+\begin{equation*}
+    \frac{1}{2}\Big[f(x^{+})+f(x^{-})\Big]
+\end{equation*}
+
+\subsection{Functions with period $2L$}
+
+We consider all functions where $f(x+2L)=f(x)$ for all $x$. So if $f$ is a piecewise function on $[-L, L]$, if we let $t=\pi x/L$ its Fourier series is given by
+
+\begin{equation*}
+    g(t)=f(x)=f(Lt/\pi)=a_0+\sum_{n=1}^{\infty}\bigg[a_n\cos\bigg(\frac{n\pi x}{L}\bigg)+b_n\sin\bigg(\frac{n\pi x}{L}\bigg)\bigg]
+\end{equation*}
+
+The coefficients can be found by using the substitution $x=Lt/\pi$, $t=\pi x/L$, such that
+
+\begin{equation*}
+    a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\,dt=\frac{1}{2L}\int_{-L}^{L}f(x)\,dx
+\end{equation*}
+
+$a_n$ is given by
+
+\begin{equation*}
+    a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}g(t)\cos nt\,dt=\frac{1}{L}\int_{-L}^{L}f(x)\cos\bigg(\frac{n\pi x}{L}\bigg)\,dx
+\end{equation*}
+
+and $b_n$ is given by
+
+\begin{equation*}
+    b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}g(t)\sin nt\,dt=\frac{1}{L}\int_{-L}^{L}f(x)\sin\bigg(\frac{n\pi x}{L}\bigg)\,dx
+\end{equation*}
+
+We can look at the Fourier series for even functions, in this case $b_n=0$, and for odd functions $a_n=0$. 
+
+\subsection{Handy trigonometric integrals}
+
+Here are a few identities that are useful for calculating Fourier series:
+
+\begin{align*}
+    \int_{-\pi}^{\pi} \sin(mx)\sin(nx)\,dx &= \pi\delta_{mn} \\
+    \int_{-\pi}^{\pi} \cos(mx)\cos(nx)\,dx &= \pi\delta_{mn} \\
+    \int_{-\pi}^{\pi} \sin(mx)\cos(nx)\,dx &= 0 \\
+\end{align*}
+
+where $\delta_{mn}$ is the kronecker delta which is equal to 1 for $m=n$, and 0 for $m\not=n$.
+
+\subsection{Complex Fourier notation}
+
+\subsubsection*{For $f(x)$ periodic in $[-\pi,\pi]$}
+
+Now the series is given as
+
+\begin{equation*}
+    f(x)=\sum_{n=-\infty}^{\infty} A_n e^{inx}
+\end{equation*}
+
+where
+
+\begin{equation*}
+    A_n=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-inx}\,dx
+\end{equation*}
+
+\subsubsection*{For $f(x)$ periodic in $[-L,L]$}
+
+And now as
+
+\begin{equation*}
+    f(x)=\sum_{n=-\infty}^{\infty} A_n e^{i(\frac{n\pi x}{L})}
+\end{equation*}
+
+where
+
+\begin{equation*}
+    A_n=\frac{1}{2L}\int_{-L}^{L} f(x)e^{-i(\frac{n\pi x}{L})}\,dx
+\end{equation*}
+
+\subsection{Parseval's theorem}
+
+If we let
+
+\begin{equation*}
+    f(x)=\sum_{n=1}^{\infty}b_n\sin\bigg(\frac{n\pi x}{L}\bigg) \ \ , \ \ 0 < x < L
+\end{equation*}
+
+Then, by applying the Kronecker delta function to the integral $\int_{0}^{L}\big[f(x)\big]^2\,dx$, we find that
+
+\begin{equation*}
+    \frac{2}{L}\int_{0}^{L}\big[f(x)\big]^2\,dx=\sum_{n=1}^{\infty}b_n^2
+\end{equation*}
+
+% \begin{equation*}
+%     \int_{0}^{L}\big[f(x)\big]^2\,dx=\sum_{m=1}^{\infty}\sum_{n=1}^{\infty}\sin\bigg(\frac{m\pi x}{L}\bigg)\sin\bigg(\frac{n\pi x}{L}\bigg)\,dx
+% \end{equation*}
+
+Now for a full Fourier Series on $[-L, L]$ Parseval's theorem says that for
+
+\begin{equation*}
+    f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\bigg[a_n\cos\bigg(\frac{n\pi x}{L}\bigg)+b_n\sin\bigg(\frac{n\pi x}{L}\bigg)\bigg]
+\end{equation*}
+
+we get that
+
+\begin{equation*}
+    \frac{1}{L}\int_{-L}^{L}\big[f(x)\big]^2\,dx=\frac{a_0^2}{2}+\sum_{n=1}^{\infty}\big(a_n^2+b_n^2\big)
+\end{equation*}
+
+\section{Fourier Transforms}
+
+Let us consider the Fourier Series periodic in $[-L/2, L/2]$,
+
+\begin{equation*}
+    f(x)=\sum_{n=-\infty}^{\infty} A_n e^{i(\frac{2n\pi x}{L})}\ \ \  \text{where}\ \ \ A_n=\frac{1}{L}\int_{-L/2}^{L/2} f(x)e^{-i(\frac{2n\pi x}{L})}\,dx
+\end{equation*}
+
+Actually the Fourier Transform is a generalization of the complex Fourier series in the limit as $L\rightarrow\infty$, so that $A_n\rightarrow F(k)\,dk$ and $n/L\rightarrow k$. We then obtain
+
+\begin{equation*}
+    f(x)=\int_{-\infty}^{\infty} F(k)e^{2\pi ikx}\,dk
+\end{equation*}
+
+where 
+
+\begin{equation*}
+    F(k)=\int_{-\infty}^{\infty} f(x)e^{-2\pi ikx}\,dx
+\end{equation*}
+
+Here we call $F(k)=\mathcal{F}_x\big[f(x)\big](k)$ the forward ($-i$) Fourier transform. And $f(x)=\mathcal{F}_k^{-1}\big[F(k)\big](x)$ is called the inverse ($+i$) Fourier transform.
+
+\bigskip
+
+\paragraph{Note:} Some authors write the transforms in terms of the angular frequency $\omega=2\pi k$ instead of the oscillation frequency $k$, such that
+
+\begin{align*}
+    H(k)&=\mathcal{F}\big[h(t)\big]=\int_{-\infty}^{\infty} h(t)e^{-i\omega t}\,dt\\[1em]
+    h(t)&=\mathcal{F}^{-1}\big[H(\omega)\big]=\frac{1}{2\pi}\int_{-\infty}^{\infty} H(\omega)e^{i\omega t}\,d\omega
+\end{align*}
+
+To fix this asymmetry often the following convention is used:
+
+\begin{align*}
+    g(y)&=\mathcal{F}\big[f(t)\big]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(t)e^{-iyt}\,dt\\[1em]
+    f(t)&=\mathcal{F}^{-1}\big[g(y)\big]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} g(y)e^{iyt}\,dy
+\end{align*}
+
+\subsection{Properties of Fourier transforms}
+
+\subsubsection*{Linearity}
+
+If $f(x)$ and $g(x)$ have the Fourier transforms transforms $F(k)$ and $G(k)$, then
+
+\begin{align*}
+    \mathcal{F}_x\big[af(x)+bg(x)\big](k)&=\mathcal{F}_x\big[af(x)\big](k)+\mathcal{F}_x\big[bg(x)\big](k)\\[1em]
+    &=a\mathcal{F}_x\big[f(x)\big](k)+b\mathcal{F}_x\big[g(x)\big](k)
+\end{align*}
+
+\subsubsection*{Derivatives}
+
+the Fourier transform of the $n$th derivative $f^{(n)(x)}$, of $f(x)$, is given by
+
+\begin{equation*}
+    \mathcal{F}_x\big[f^{(n)}(x)\big](k)=(i2\pi k)^n\mathcal{F}_x\big[f(x)\big](k)
+\end{equation*}
+
+\subsection{The Dirac delta function}
+
+The Dirac delta function $\delta(x)$ is a distribution for which
+
+\begin{equation*}
+    \int_{-\infty}^{\infty}f(x)\delta(x-a)\,dx=f(a)
+\end{equation*}
+
+since
+
+\begin{equation*}
+    \delta(x)
+    =
+    \begin{dcases}
+        \infty\ ,\ \ &x=0 \\
+        0\ ,\ \ &x\not=0 \\
+    \end{dcases}
+\end{equation*}
+
+and
+
+\begin{equation*}
+    \int_{-\infty}^{\infty}\delta(x)\,dx=1
+\end{equation*}
+
+Also note that
+
+\begin{equation*}
+    \delta(ax)=\frac{1}{|a|}\delta(x)\quad\text{and}\quad\delta(-x)=\delta(-x)
+\end{equation*}
+
+The delta function can also be given as follows, in the limit for $a\rightarrow 0$,
+
+\begin{equation*}
+    \delta_a(x)=\frac{1}{a\sqrt{\pi}}e^{-x^2/a^2}
+\end{equation*}
+
+\subsubsection*{The delta function as Fourier transform}
+
+As a Fourier transform it is given as
+
+\begin{equation*}
+    \delta(k)=\mathcal{F}_x[1](k)=\int_{-\infty}^{\infty}e^{-i2\pi kx}\,dx
+\end{equation*}
+
+and similarly
+
+\begin{equation*}
+    \delta(x)=\mathcal{F}_k[1](x)=\int_{-\infty}^{\infty}e^{-i2\pi kx}\,dk
+\end{equation*}
+
+And therefore we can derive the following expression
+
+\begin{equation*}
+    \mathcal{F}_x[\delta(x-x_0)](k)=\int_{-\infty}^{\infty}\delta(x-x_0)e^{-i2\pi kx}\,dx=e^{-i2\pi kx_0}
+\end{equation*}
+
+\subsubsection*{Limits and the delta function}
+
+Some solutions to limits also contain a term with a delta function, such as
+
+\begin{equation*}
+    \lim_{\alpha\rightarrow 0}\frac{1}{\alpha+i\omega}=\lim_{\alpha\rightarrow 0}\frac{\alpha}{\alpha^2+\omega^2}-\frac{i\omega}{\alpha^2+\omega^2}=\frac{1}{\pi}\delta(\omega)-\frac{i}{\omega}
+\end{equation*}
+
+This limit can be solved by noting another definition of the delta function (also known as the Poisson kernel), namely
+
+\begin{equation*}
+    \delta(x)=\frac{1}{\pi}\lim_{\epsilon\rightarrow 0}\frac{\epsilon}{x^2+\epsilon^2}
+\end{equation*}
+
+\section{Partial differential equations}
+
+We shall solve PDEs using separation of variables, so we must be working with linear homogeneous PDEs with linear homogeneous boundary conditions.
+
+\subsection{The heat equation}
+
+The heat equation is given by
+
+\begin{equation*}
+    \frac{\partial u}{\partial t}=c^2\frac{\partial^2 u}{\partial x^2}\ \ ,\ \ u=u(x,t)
+\end{equation*}
+
+Where $u$ denotes the temperature at position $0<x<L$ at time $t$. We consider two problems:
+
+\begin{enumerate}
+    \item Dirichlet problems: $u(0, t)=0$ and $u(L, t)=0$.
+    \item Neumann problems: $\frac{\partial u}{\partial x}(0, t)=0$ and $\frac{\partial u}{\partial t}(L, t)=0$.
+\end{enumerate}
+
+\subsubsection*{Dirichlet problems}
+
+We assume a solution of the form 
+
+\begin{equation*}
+    u(x, t)=F(x)G(t)
+\end{equation*}
+
+Such that
+
+\begin{equation*}
+    \frac{\partial u}{\partial t}=FG'\quad\text{and}\quad \frac{\partial^2 u}{\partial x^2}=F''G\quad\Rightarrow\quad FG'=c^2F''G
+\end{equation*}
+
+And by separation of the variables we find
+
+\begin{equation*}
+    \frac{G'}{c^2G}=\frac{F''}{F}=\text{cst}=-p^2
+\end{equation*}
+
+Now we have the following two differential equations 
+
+\begin{equation*}
+    G'+c^2p^2G=0\quad\text{and}\quad F''+p^2F=0
+\end{equation*}
+
+Starting with $F$ we find that $F(0)=F(L)=0$, such that the general solution is given by
+
+\begin{equation*}
+    F=A\cos(px)+B\sin(px)
+\end{equation*}
+
+We find that $A=0$, and that $\sin(pL)=0$ ($B\not=0$), so
+
+\begin{equation*}
+    pL=n\pi\quad\Rightarrow\quad p=p_n=\frac{n\pi}{L}\ \ (n=1, 2, 3, ...)
+\end{equation*}
+
+Therefore $F$ is given as
+
+\begin{equation*}
+    F=F_n=\sin(p_nx)=\sin\bigg(\frac{n\pi}{L}x\bigg)\ \ (n=1, 2, 3, ...)
+\end{equation*}
+
+If we let the equation for $G$ become
+
+\begin{equation*}
+    G'+\lambda_n^2=0,\ \ \lambda_n=\frac{cn\pi}{L} 
+\end{equation*}
+
+Then the general solution for $G$ is given as
+
+\begin{equation*}
+    G=G_n=B_ne^{-\lambda_n^2t}\ \ (n=1, 2, 3, ...)
+\end{equation*}
+
+From this we find that the equation for $u$ is given as
+
+\begin{align*}
+    &u_n(x, t)=F_n(x)G_n(t)=B_ne^{-\lambda_n^2t}\sin\bigg(\frac{n\pi}{L}x\bigg)
+\end{align*}
+
+Such that 
+
+\begin{equation*}
+    u(x, t)=\sum_{n=1}^{\infty}u_n(x,t)=\sum_{n=1}^{\infty}B_ne^{-\lambda_n^2t}\sin\bigg(\frac{n\pi}{L}x\bigg)
+\end{equation*}
+
+where
+
+\begin{equation*}
+    B_n=\frac{2}{L}\int_{0}^{L}f(x)\sin\bigg(\frac{n\pi}{L}\bigg)
+\end{equation*}
+
+Satisfying the initial condition $u(x, 0)=f(x)$.
+
+\subsection{1D Wave equation}
+
+We want to find a solution to the wave equation for a fixed string
+
+\begin{equation*}
+    \frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial^2 u}{\partial x^2}
+\end{equation*}
+
+for $0\le x\le L$. We can fix the string at endpoints with $u(0, t)=u(L, t)=0$ (boundary conditions). And the initial conditions
+
+\begin{align*}
+    u(x, 0)=f(x), \ \ \frac{\partial u(x, 0)}{\partial t}=g(x),\\[1em]
+    f(0)=f(L)=g(0)=g(L)=0
+\end{align*}
+
+We want a solution $u(x, t)=X(x)T(t)$, then
+
+\begin{align*}
+    \frac{\partial^2 u}{\partial t^2}=XT''\quad\text{and}\quad \frac{\partial^2 u}{\partial x^2}=X''T\quad\Rightarrow\quad XT''=a^2XT''
+\end{align*}
+
+from which we obtain
+
+\begin{equation*}
+    \frac{X''}{X}=\frac{T''}{a^2T}=-\lambda^2\quad\Rightarrow\quad X''+\lambda^2X=0\quad\text{and}\quad T''+a^2\lambda^2T=0
+\end{equation*}
+
+Solving the first equation yields 
+
+\begin{equation*}
+    X(x)=c_1\cos(\lambda x)+c_2\sin(\lambda x)
+\end{equation*}
+
+we find that $c_1=0$ and that $c_2\not=0$ for $\lambda_n=\pi n/L$, such that
+
+\begin{equation*}
+    X_n(x)=\sin\bigg(\frac{n\pi x}{L}\bigg)
+\end{equation*}
+
+Now for the second equation use $\lambda=\lambda_n$ yielding
+
+\begin{equation*}
+    T(t)=A\cos(a\lambda_n t)+B\sin(a\lambda_n t)=A\cos\bigg(\frac{an\pi}{L}t\bigg)+B\sin\bigg(\frac{an\pi}{L} t\bigg)
+\end{equation*}
+
+We then have that
+
+\begin{equation*}
+    u_n(x, t)=\bigg[\sin\bigg(\frac{n\pi x}{L}\bigg)\bigg]\bigg[A_n\cos\bigg(\frac{an\pi}{L}t\bigg)+B_n\sin\bigg(\frac{an\pi}{L} t\bigg)\bigg]
+\end{equation*}
+
+so
+
+\begin{equation*}
+    u(x, t)=\sum_{n=1}^{\infty} u_n(x, t)
+\end{equation*}
+
+Then to satisfy the initial condition and find $A_n$ and $B_n$ we differentiate the entire expression with respect to $t$ and find the coefficients as we would in a regular Fourier series.
+
+\subsection{Laplace's equation}
+
+Suppose we want to solve
+
+\begin{equation*}
+    \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0
+\end{equation*}
+
+for $0<x<L$, $0<y<H$, where we have the boundary conditions
+
+\begin{align*}
+    u(0, y)&=g(y)\\[1em]
+    u(L, y)&=0\\[1em]
+    u(x, 0)&=0\\[1em]
+    u(x, H)&=0
+\end{align*}
+
+and then let $u(x, y)=X(x)Y(y)$, such that
+
+\begin{equation*}
+    \frac{X''}{X}=-\frac{Y''}{Y}
+\end{equation*}
+
+so
+
+\begin{align*}
+    X''&=\lambda X\\[1em]
+    Y''&=\lambda Y
+\end{align*}
+
+Note $Y(0)=Y(H)=0$ so
+
+\begin{equation*}
+    Y=c\sin\bigg(\frac{n\pi y}{H}\bigg)\quad\text{for}\quad \lambda = \bigg(\frac{n\pi}{H}\bigg)^2
+\end{equation*}
+
+and that
+
+\begin{equation*}
+    X(x)=Ae^{n\pi x/H}+Be^{-n\pi x/H}\quad\text{or}\quad X(x)=a_1\cosh\bigg[\frac{n\pi}{H}(x-L)\bigg]+a_2\sinh\bigg[\frac{n\pi}{H}(x-L)\bigg]
+\end{equation*}
+
+Since $u(L, y)=0$, we impose that $X(L)=0$, so $a_1=0$ and
+
+\begin{equation*}
+     X(x)=a_2\sinh\bigg[\frac{n\pi}{H}(x-L)\bigg]
+\end{equation*}
+
+Such that (note $ca_2=a_n$),
+
+\begin{equation*}
+    u(x, y)=\sum_{n=1}^{\infty}a_n\sinh\bigg[\frac{n\pi}{H}(x-L)\bigg]\sin\bigg(\frac{n\pi y}{H}\bigg)
+\end{equation*}
+
+We know that $u(0, y)=g(y)$, such that
+
+\begin{equation*}
+    u(0, y)=\sum_{n=1}^{\infty}a_n\sinh\bigg[-\frac{n\pi}{H}L\bigg]\sin\bigg(\frac{n\pi y}{H}\bigg)=g(y)
+\end{equation*}
+
+and $g(0)=g(h)=0$, so $g(y)$ can be expressed as a Fourier sine series,
+
+\begin{equation*}
+    g(y)=\sum_{n=1}^{\infty}A_n\sin\bigg(\frac{n\pi y}{H}\bigg)
+\end{equation*}
+
+where $0\le y\le H$, and
+
+\begin{equation*}
+    A_n=\frac{2}{H}\int_0^H g(y)\sin\bigg(\frac{n\pi y}{H}\bigg)\,dy
+\end{equation*}
+
+Such that
+
+\begin{equation*}
+    a_n=\frac{A_n}{\sinh\big(-n\pi L/H\big)}
+\end{equation*}
+
+Such that we find the solution to be
+
+\begin{equation*}
+    u(x, y)=\sum_{n=1}^{\infty}\frac{2}{H\sinh\big(-n\pi L/H\big)}\bigg[\int_0^H g(y)\sin\bigg(\frac{n\pi y}{H}\bigg)\,dy\bigg]\sinh\bigg[\frac{n\pi}{H}(x-L)\bigg]\sin\bigg(\frac{n\pi y}{H}\bigg)
+\end{equation*}
+
+
+\end{document}
+
