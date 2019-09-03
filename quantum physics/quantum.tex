@@ -1,0 +1,143 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\graphicspath{{./}}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[section]{placeins}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{enumerate}
+
+\title{Lecture Notes Quantum Physics}
+\author{Mick Veldhuis}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{The wave function}
+
+In QM we want to find the \textbf{wave function} $\Psi(x, t)$, a function of position and time. We can obtain this function by solving the \textbf{Schrodinger equation}:
+
+\begin{equation}
+    i\hbar\frac{\partial\Psi}{\partial t}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\Psi
+\end{equation}
+
+where $\hbar=h/2\pi$. Additionally we also have the complex conjugate of the above equation, which is given as
+
+\begin{equation}
+    \frac{\partial\Psi^{*}}{\partial t}=-\frac{i\hbar}{2m}\frac{\partial^2}{\partial x^2} + \frac{i}{\hbar}V(x)\Psi
+\end{equation}
+
+\subsection{Statistical interpretation of $\Psi$}
+
+Born's interpretation tells us that $|\Psi|^2=\Psi \Psi^{*}$ gives the probability of finding the particle at a some point $x$, at some time $t$. Or rather the probability of finding the particle (whose wave function we are considering) between $a$ and $b$, at some time $t$ is given by
+
+\begin{equation}
+    \int_{a}^{b}|\Psi(x,t)|^2\,dx
+\end{equation}
+
+From this interpretation also follows that QM is nondeterministic, as QM only offers statistical information about the possible results. One could then ask if one measures the position of the particle somewhere, where was it before? The commonly accepted view (that is the \textbf{Copenhagen interpretation}) says that the particle was not really anywhere. And thus the result of probing caused the specific result, probing the particle again will yield the same position. We say that the wave function collapses upon measurement.
+
+\subsection{Some probability definitions}
+
+\subsubsection{Discrete variables}
+
+In general, the average value of some function $f$ is given by
+
+\begin{equation}
+    \langle f(j) \rangle = \sum_{j=0}^{\infty}f(j)P(j)
+\end{equation}
+
+The variance is given by
+
+\begin{equation}
+    \sigma^2 = \langle j^2 \rangle - \langle j \rangle^2
+\end{equation}
+
+so $\langle j^2 \rangle \ge \langle j \rangle^2$.
+
+\subsubsection{Continuous variables}
+
+Given that $\rho(x)\,dx$ is the probability that an individual lies between $x$ and $x+dx$, where $\rho(x)$ is called the probability density. So the probability that $x$ lies between $a$ and $b$ is given by
+
+\begin{equation}
+    P_{ab} = \int_{a}^{b}\rho(x)\,dx
+\end{equation}
+
+Such that
+
+\begin{equation}
+    \langle f(x) \rangle = \int_{-\infty}^{\infty}f(x)\rho(x)\,dx
+\end{equation}
+
+and 
+
+\begin{equation}
+    \sigma^2 \equiv \langle x^2 \rangle - \langle x \rangle^2
+\end{equation}
+
+\subsection{Normalization}
+
+Since the total probability of anything is one, a logical requirement is that
+
+\begin{equation}
+    \int_{-\infty}^{\infty}|\Psi(x,t)|^2\,dx=1
+\end{equation}
+
+Such that if that integral does not yield one, but some other finite answer, we shall scale it with some real number $A$, like $A\Psi(x,t)$. If the result is not finite, the function is non normalizable and as such not physical. Note that the wave function should go to zero at both infinities. And $\Psi(x,t)$ should fall of faster than $1/\sqrt{|x|}$ in order to be normalizable. It is also important to note that if a wave function is normalized at any time $t$ it is also normalized for all future time.
+
+\subsection{Momentum}
+
+The expectation value of $x$ is given by
+
+\begin{equation}
+    \langle x \rangle = \int x\Psi^{*}\Psi\,dx
+\end{equation}
+
+Such that that of the speed $v$ is given as
+
+\begin{equation}
+    \langle v \rangle = \frac{d\langle x\rangle}{dt}=\int x\frac{\partial}{\partial t}\big(\Psi^{*}\Psi\big)\,dx=\frac{-i\hbar}{m}\int\Psi^{*}\frac{\partial\Psi}{\partial x}\,dx
+\end{equation}
+
+Such that the expectation value of momentum is given as
+
+\begin{equation}
+    \langle p \rangle = m\langle v \rangle = -i\hbar\int\Psi^{*}\frac{\partial\Psi}{\partial x}\,dx
+\end{equation}
+
+From these equations we extrapolate that there are two important operators, namely $x$, representing position, and $-i\hbar(\partial/\partial x)$ for momentum. In general any observable is a function of $x$ and $p$, $Q=Q(x, p)$. And in QM
+
+\begin{equation}
+    \langle Q \rangle = \int\Psi^{*}\bigg(x, -i\hbar\frac{\partial}{\partial x}\bigg)\Psi\,dx
+\end{equation}
+
+\subsection{H.U.P.}
+
+A general property of waves is that they cannot have a definite position and a clear wavelength. In QM the wavelength of $\Psi$ is related to $p$ by the \textbf{de Broglie formula}:
+
+\begin{equation}
+    p=\frac{h}{\lambda}=\frac{2\pi h}{\lambda}
+\end{equation}
+
+So like waves, in QM we cannot know both the position and momentum in detail. It is one or the other. Quantitatively this is described by \textbf{Heisenberg's uncertainty principle}:
+
+\begin{equation}
+    \sigma_x\sigma_p\ge\frac{\hbar}{2}
+\end{equation}
+
+\end{document}
+
