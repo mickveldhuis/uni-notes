@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\graphicspath{{./}}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[section]{placeins}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{enumerate}
+
+\title{Lecture Notes Thermal Physics}
+\author{Mick Veldhuis}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Introduction: a short overview of important notions}
+
+\subsection*{The mole}
+
+A \textbf{mole} of a certain atom is equivalent to an \textbf{Avogadro number} $N_a$ of atoms. Where $N_A=6.022\cdot 10^23$.
+
+\subsection*{The ideal gas law}
+
+Suppose we have $N$ particles in a gas, then we can relate the pressure, volume, temperature, and amount of particles as follows:
+
+\begin{equation}
+	pV=Nk_BT
+\end{equation}
+
+where $k_B$ is Boltzmann's constant. In order to apply this formula one assumes that (i) there are no intermolecular forces and (ii) that the particles are point-like and have zero size. 
+
+\subsection*{Combinatorics}
+
+Suppose we have $n$ atoms, and $r$ of those atoms are for instance in an excited state. If we want to calculate the number of possible configurations $\Omega$ we apply the following formula,
+
+\begin{equation}
+	\Omega=\frac{n!}{(n-r)!r!}\equiv {}^nC_r
+\end{equation}
+
+Since factorials grow incredibly quick, we shall often use $\ln\Omega$ instead of $\Omega$. 
+
+\begin{equation}
+	\ln\Omega=\ln(n!)-\ln([n-r]!)-\ln(r!)
+\end{equation}
+
+We also have \textbf{Sterling's formula}:
+
+\begin{equation}
+	\ln(n!)\approx n\ln n-n
+\end{equation}
+
+\section{Heat}
+
+
+\end{document}
+
