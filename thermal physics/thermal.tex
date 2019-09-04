@@ -65,6 +65,102 @@ We also have \textbf{Sterling's formula}:
 
 \section{Heat}
 
+Heat ($Q$, measured in Joules) is thermal energy in transit. Note that in contrast to for instance fuel in a car, one cannot say that something has a certain quantity of heat. One can only add heat to something, like adding fuel to a car.
+
+$\psi$
+\subsection{Heat capacity}
+
+We can ask the question, how much heat needs to be supplied to an object tot raise its temperature by a small amount d$T$. The answer is $\text{d}Q=C\text{d}T$, such that we define the \textbf{heat capacity} $C$ of an object using
+
+\begin{equation}
+	C=\frac{dQ}{dT}
+\end{equation}
+
+There is also $c$, the \textbf{specific heat capacity} in $\si{\joule\per\kelvin\per\kilo\gram}$. And the \textbf{molar heat capacity}, the heat capacity of one mole of a substance. 
+
+\bigskip
+
+If we were to add heat to a system, we'd have to constrain, either the volume of the gas or the pressure of the gas to be fixed. We should therefore change the definition of heat capacity, we need new quantities: $C_V$, the heat capacity at constant volume, and $C_p$, the heat capacity at constant pressure.
+
+\begin{align}
+	C_V&=\bigg(\frac{\partial Q}{\partial T}\bigg)_V\\[1em]
+	C_p&=\bigg(\frac{\partial Q}{\partial T}\bigg)_p
+\end{align}
+
+In practice $C_p>C_V$, due to more heat being added whilst heating at constant pressure. While heating at constant volume will expend additional energy on doing work on the atmosphere as the gas expands. 
+
+\section{Probability}
+
+
+\subsection{Discrete probability distributions}
+
+Let $x$ be a discrete random variable which takes values $x_i$ with probability $P_i$. The sum of $P_i$'s must always be $\sum P_i=1$. And we define the \textbf{mean} of $x$ to be
+
+\begin{equation}
+	\langle x \rangle = \sum_i x_iP_i
+\end{equation}
+
+and in general
+
+\begin{equation}
+\langle f(x) \rangle = \sum_i f(x_i)P_i
+\end{equation}
+
+\subsection{Continuous probability distributions}
+
+Let $x$ be a continuous random variable which has a probability $P(x)\,dx$ of having a value between $x$ and $x+dx$. We require that
+
+\begin{equation}
+	\int P(x)\,dx=1
+\end{equation}
+
+With the mean defined as
+
+\begin{equation}
+\langle x \rangle = \int xP(x)\,dx
+\end{equation}
+
+and in general
+
+\begin{equation}
+\langle f(x) \rangle = \int f(x)P(x)\,dx
+\end{equation}
+
+\subsection{Linear transformation}
+
+If one want to relate say a random variable $x$ to the random variable $y$ by e.g. $y=ax+b$ then
+
+\begin{equation}
+\langle y \rangle = \langle ax+b \rangle= a\langle x \rangle+b
+\end{equation}
+
+where $a$ and $b$ are just constants.
+
+\subsection{Variance}
+
+One measurement of spread in a distribution is the variance (the square root of it is the standard deviation), defined as
+
+\begin{equation}
+	\sigma_x^2=\langle x^2 \rangle - \langle x \rangle^2
+\end{equation}
+
+\subsection{Independent variables}
+
+If $u$ and $v$ are independent random variables the probability that they are in there respective range is given by
+
+\begin{equation}
+	P_u(u)\,du\,P_v(v)\,dv
+\end{equation}
+
+and by taking the double integral of that product we obtain
+
+\begin{equation}
+	\langle uv \rangle = \langle u \rangle \langle v \rangle
+\end{equation}
+
+
+\subsection{Binomial distribution}
+
 
 \end{document}
 
