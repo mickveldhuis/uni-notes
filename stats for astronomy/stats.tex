@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\graphicspath{{./}}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[section]{placeins}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{enumerate}
+
+\title{Lecture Notes Statistic for Astronomy}
+\author{Mick Veldhuis}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Statistics basics}
+
+\subsection{Cox's rules}
+
+The first rule states that the probability of something happening, let's call the event $X$, plus that of $X$ not happening is one:
+
+\begin{equation}
+	P(X)+P(\bar{X})=1
+\end{equation}
+
+The second rule (the product rule) states that the probability of events $X$ and $Y$ happening is given by:
+
+\begin{equation}
+	P(X,Y)=P(X|Y)\cdot P(Y)
+\end{equation}
+
+Where $P(X|Y)$ is the probability of $X$ given $Y$ happening.
+
+\subsection{Bayes' theorem}
+
+Bayes' theorem gives us the probability of the hypothesis $H$ being true given the data $D$.
+
+\begin{equation}
+	P(H|D)=\frac{P(D|H)\cdot P(H)}{P(D)}
+\end{equation}
+
+Where $P(H|D)$ is called the posterior, $P(D|H)$ the likelihood, $P(H)$ the prior, and $P(D)$ the evidence. 
+
+\subsection{Marginalization}
+
+Suppose you have a range of hypotheses $\{H_i\}$, where $i=0,1,2,3,\dots$. Then
+
+\begin{equation}
+	\sum_{i=0}^{N-1} P(H_i)=1
+\end{equation}
+
+Then suppose we have some nuisance parameter $X$, then 
+
+\begin{align}
+	\sum P(H_i,X) &= \sum P(H_i|X)\cdot P(X)\\[1em]
+	&= P(X)\sum P(H_i|X)\\[1em]
+	&= P(X)
+\end{align}
+
+Which could also be written as
+
+\begin{align}
+	P(X)=\int_{-\infty}^{\infty} P(X,Y)dY
+\end{align}
+
+$\psi$
+
+\end{document}
+
