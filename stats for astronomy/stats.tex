@@ -63,7 +63,7 @@ Suppose you have a range of hypotheses $\{H_i\}$, where $i=0,1,2,3,\dots$. Then
 	\sum_{i=0}^{N-1} P(H_i)=1
 \end{equation}
 
-Then suppose we have some nuisance parameter $X$, then 
+Then suppose we have some nuisance parameter $X$ (quantities of no intrinsic interest, that sadly enter our analyses), then 
 
 \begin{align}
 	\sum P(H_i,X) &= \sum P(H_i|X)\cdot P(X)\\[1em]
@@ -77,7 +77,23 @@ Which could also be written as
 	P(X)=\int_{-\infty}^{\infty} P(X,Y)\,dY
 \end{align}
 
+Suppose we now have some continuous case. Then we dive into the realm of probability density functions:
 
+\begin{equation}
+	\text{pdf}(X, Y=y) = \lim_{\delta y\rightarrow 0} \frac{P(X, y\le Y < y+\delta y)}{\delta y}
+\end{equation} 
+
+Then the probability that the value of $Y$ lies between $y_1$ and $y_2$ is given by
+
+\begin{equation}
+	P(X, y_1\le Y < y_2)=\int_{y_1}^{y_2}\text{pdf}(X, Y)\,dY
+\end{equation}
+
+Where 
+
+\begin{equation}
+	\int_{-\infty}^{\infty} P(Y|X)\,dY = 1
+\end{equation}
 
 \end{document}
 
