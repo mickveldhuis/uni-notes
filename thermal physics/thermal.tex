@@ -160,6 +160,13 @@ and by taking the double integral of that product we obtain
 
 \subsection{Binomial distribution}
 
+It is a probability distribution based on \textbf{Bernoulli trials}, which are experiments with two outcomes, success and failure. Where the success happens with a probability $p$, and failure with probability $1-p$. The \textbf{binomial distribution} is the discrete probability distribution of getting $k$ successes from $n$ independent Bernoulli trials. It is defined as
+
+\begin{equation}
+	P(n, k) = p^k(1-p)^{n-k}\big({}^nC_k\big)\quad\text{where}\quad {}^nC_k=\frac{n!}{(n-k)!k!}
+\end{equation}
+
+and the mean of the distribution is $\langle k \rangle=np$ and the variance is $\sigma_k^2=np(1-p)$.
 
 \end{document}
 
