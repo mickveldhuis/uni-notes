@@ -139,5 +139,152 @@ So like waves, in QM we cannot know both the position and momentum in detail. It
     \sigma_x\sigma_p\ge\frac{\hbar}{2}
 \end{equation}
 
+\section{Time-independent Schrodinger equation}
+
+\subsection{Stationary states}
+
+lets assume that $V=V(x)$, and let $\Psi(x,t)=\psi(x)\varphi(t)$. Now we can attempt to solve the Schrodinger equation by separation of variables.
+
+\bigskip
+
+\paragraph{1.} Note that
+
+\begin{equation}
+	\frac{\partial\Psi}{\partial t}=\psi\frac{d\varphi}{dt}\quad\text{and}\quad\frac{\partial^2\Psi}{\partial x^2}=\varphi\frac{d^2\psi}{dx^2}
+\end{equation}
+
+\paragraph{2.} Now we can write the Schrodinger equation as
+
+\begin{equation}
+	i\hbar\psi\frac{d\varphi}{dt}=-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}\varphi+V\psi\varphi
+\end{equation}
+
+\paragraph{3.} Then divide by $\psi\varphi$, and we obtain
+
+\begin{equation}
+i\hbar\frac{1}{\varphi}\frac{d\varphi}{dt}=-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}\frac{1}{\psi}+V
+\end{equation}
+
+Now the LHS is just a function of time and the RHS just a function of position.
+
+\paragraph{4.} Now we let the separation constant be $E$, such that we obtain
+
+\setlength{\leftskip}{0.5cm}
+
+\paragraph{4.1}
+
+\begin{equation}
+	i\hbar\frac{1}{\varphi}\frac{d\varphi}{dt}=E\quad\Rightarrow\quad\varphi(t)=e^{-iEt/\hbar}
+\end{equation}
+
+\paragraph{4.2}
+
+\begin{equation}
+	-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V\psi=E\psi
+\end{equation}
+
+\setlength{\leftskip}{0cm}
+
+This (last) equation is the time-independent Schrodinger equation; to solve it we first need to know $V(x)$.
+
+\bigskip
+
+One might ask why these separable solutions are so great, well
+
+\begin{enumerate}
+	\item They are stationary states: $|\Psi|^2$ and $\langle Q(x, p)\rangle$ do not depend on time, thus we can often drop $\varphi(t)$.
+	\item They are states of definite total energy: In CM the Hamiltonian is defined as $$H=T+V=\frac{p^2}{2m}+V(x)$$ By applying the operator for the momentum as defined in section 1.4 we define the Hamiltonian operator: $$\hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V$$ Such that the time-independent Schrodinger equation can be rewritten as $$\hat{H}\psi=E\psi$$ The expectation value $\langle H\rangle=E$, and note that $$\hat{H}^2\psi=E^2\psi$$ Such that $$\sigma_H^2=\langle H^2\rangle-\langle H\rangle^2=E^2-E^2=0$$ So a separable solution is certain to have a total energy $E$ for every measurement.
+	\item The general solution is a linear combination of separable solutions: the time-independent Schrodinger equation yields an infinite collection of solutions $\{\psi_n(x)\}$, and each is associated with a specific energy $\{E_n\}$. Such that $$\Psi(x,t)=\sum_{n=1}^{\infty}c_n\psi_n(x)e^{iE_nt/\hbar}$$ Note that $|c_n|^2$ is the probability that a measurement of the energy returns $E_n$. And logically $$\sum |c_n|^2=1\quad\Rightarrow\quad\langle H\rangle=\sum |c_n|^2E_n$$
+\end{enumerate}
+
+\subsection{Infinite square well}
+
+Lets now assume a certain potential
+
+\[V(x) = \left\{
+\begin{array}{lr}
+0, & \text{if}\ 0 \le x \le a\\
+\infty, & \text{otherwise}
+\end{array}
+\right.
+\]
+
+Thus the particle(s) is/are stuck between $x=0$ and $x=a$. 
+
+\paragraph{Outside the well: } $\psi(x)=0$
+\paragraph{Inside the well: }
+
+\begin{align}
+	V=0\quad&\Rightarrow\quad -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}=E\psi \\[1em]
+	&\Rightarrow\quad \frac{d^2\psi}{dx^2}=-k^2\psi\ ,\ \ k^2=\frac{2mE}{\hbar^2} 
+\end{align}
+
+Note that we assume that $E\ge 0$. This is just a simple harmonic oscillator, thus the solution is given by
+
+\begin{equation}
+	\psi(x)=A\sin kx+B\cos kx
+\end{equation} 
+
+We have the boundary condition $\psi(0)=\psi(a)=0$, therefore $B=0$. Thus 
+
+\begin{equation}
+	\psi(x)=A\sin kx
+\end{equation}
+
+and since $A\not=0$ $ka=n\pi$. So
+
+\begin{equation}
+	k_n=\frac{n\pi}{a}
+\end{equation}
+
+Now the energies $E_n$ are given as
+
+\begin{align}
+	E_n=\frac{\hbar^2k_n^2}{2m}=\frac{\hbar^2\pi^2n^2}{2ma^2}
+\end{align}
+
+We arrive at this expression by noting that $E=T+V=T+0=p^2/2m$, and $p=2\pi\hbar/\lambda=k\hbar$ where $k$ is the wave number $k=2\pi/\lambda$. Such that $p_n=\hbar k_n\Rightarrow p_n^2=\hbar^2k_n^2$, which we then plug into $E_n=p_n^2/2m$.
+
+\bigskip
+
+Now we still need to find $A$, which we do by normalizing $\psi(x)$:
+
+\begin{equation}
+	|A|^2\int_0^a\sin^2 kx\,dx=|A|^2\frac{a}{2}=1\quad\Rightarrow\quad A=\sqrt{\frac{2}{a}}
+\end{equation}
+
+As such we now have $\psi_n(x)$
+
+\begin{equation}
+	\psi_n(x)=\sqrt{\frac{2}{a}}\sin\bigg(\frac{n\pi}{a}x\bigg)
+\end{equation}
+
+Where $\psi_1$ is the ground state and $\{\psi_n\}$, for $n>1$, are the excited states. A few properties of $\psi_n(x)$ are
+
+\begin{enumerate}
+	\item $\psi_n$ is alternately even and odd.
+	\item As energy increases, each successive state has one more node (zero-crossing).
+	\item $$\int\psi_m(x)^*\psi_n(x)\,dx=\delta_{mn}$$ Thus 0 for $m\not=n$ and 1 for $m=n$.
+	\item They are complete, meaning that you can express any $f(x)$ as a linear combination of $\psi_n$, $$f(x)=\sum_{n=1}^{\infty}c_n\psi_n(x)\ , \ \ c_n=\int\psi_n(x)^*f(x)\,dx$$
+\end{enumerate}
+
+Thus, given the potential $V(x)$ we find $\Psi_n(x, t)$ to be
+
+\begin{equation}
+	\Psi_n(x,t)=\sqrt{\frac{2}{a}}\sin\bigg(\frac{n\pi}{a}x\bigg)e^{-iE_nt/\hbar}\ , \ \ E_n=\frac{\hbar^2\pi^2n^2}{2ma^2}
+\end{equation}
+
+And therefore the wave function $\Psi(x, t)$ is given by
+
+\begin{equation}
+\Psi(x,t)=\sum_{n=1}^{\infty}c_n\Psi_n(x,t)=\sum_{n=1}^{\infty}c_n\sqrt{\frac{2}{a}}\sin\bigg(\frac{n\pi}{a}x\bigg)e^{-iE_nt/\hbar}
+\end{equation}
+
+where
+
+\begin{equation}
+	c_n=\sqrt{\frac{2}{a}}\int_0^a\sin\bigg(\frac{n\pi}{a}x\bigg)\Psi(x,0)\,dx
+\end{equation}
+
 \end{document}
 
