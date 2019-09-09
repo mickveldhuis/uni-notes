@@ -286,5 +286,138 @@ where
 	c_n=\sqrt{\frac{2}{a}}\int_0^a\sin\bigg(\frac{n\pi}{a}x\bigg)\Psi(x,0)\,dx
 \end{equation}
 
+\subsection{The harmonic oscillator}
+
+In CM we have a harmonic oscillator whose motion is governed by
+
+\begin{equation}
+	m\ddot{x}=-kx
+\end{equation}
+
+with a solution
+\begin{equation}
+	x(t)=A\sin(\omega t)+B\cos(\omega t)\ , \ \ \omega\equiv\sqrt{\frac{k}{m}}
+\end{equation}
+
+with a potential 
+
+\begin{equation}
+	V(x)=\frac{1}{2}kx^2
+\end{equation}
+
+In QM we want to solve the Schrodinger equation for the potential
+
+\begin{equation}
+	V(x)=\frac{1}{2}m\omega^2x^2
+\end{equation}
+
+Substituting it into the time-independent Schrodinger equation yields
+
+\begin{equation}
+	-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+\frac{1}{2}m\omega^2x^2\psi=E\psi
+\end{equation}
+
+We shall solve it by two methods.
+
+\subsubsection{Algebraic method}
+
+We can rewrite it as
+
+\begin{equation}
+	\frac{1}{2m}\big[\hat{p}^2+(m\omega x)^2\big]\psi=E\psi
+\end{equation}
+
+where $\hat{p}\equiv (\hbar/i)d/dx$, the momentum operator. We'd like to factor the Hamiltonian
+
+\begin{equation}
+	\hat{H}=\frac{1}{2m}\big[\hat{p}^2+(m\omega x)^2\big]
+\end{equation}
+
+In order to do so we consider the quantity
+
+\begin{equation}
+	\hat{a}_{\pm}\equiv \frac{1}{\sqrt{2\hbar m\omega}}\big(\mp ip + m\omega x\big)
+\end{equation}
+
+Now what is $\hat{a}_{-}\hat{a}_{+}$?
+
+\begin{equation}
+	\hat{a}_{-}\hat{a}_{+}=\frac{1}{2\hbar m\omega}\big[p^2+(m\omega x)^2-im\omega(x\hat{p}-\hat{p}x)\big]
+\end{equation}
+
+Where $x\hat{p}-\hat{p}x$ is called the commutator of $x$ and $\hat{p}$, written as $[x,\hat{p}]$. In general $[\hat{A},\hat{B}]=\hat{A}\hat{B}-\hat{B}\hat{A}$. So
+
+\begin{equation}
+	\hat{a}_{-}\hat{a}_{+}=\frac{1}{2\hbar m\omega}\big[p^2+(m\omega x)^2\big]-\frac{i}{2\hbar}\big[x, \hat{p}\big]
+\end{equation}
+
+Where $\big[x, \hat{p}\big]=i\hbar$. Such that we have that
+
+\begin{equation}
+	\hat{a}_-\hat{a}_+=\frac{1}{\hbar\omega}\hat{H}+\frac{1}{2}\quad\Rightarrow\quad\hat{H}=\hbar\omega\bigg(\hat{a}_-\hat{a}_+-\frac{1}{2}\bigg)
+\end{equation}
+
+and
+
+\begin{equation}
+\hat{a}_+\hat{a}_-=\frac{1}{\hbar\omega}\hat{H}-\frac{1}{2}\quad\Rightarrow\quad\hat{H}=\hbar\omega\bigg(\hat{a}_+\hat{a}_-+\frac{1}{2}\bigg)
+\end{equation}
+ 
+Thus one sees that $[\hat{a}_-,\hat{a}_+]=1$. We can now rewrite the Schrodinger equation as
+
+\begin{equation}
+	\hbar\omega\bigg(\hat{a}_\pm \hat{a}_\mp\pm\frac{1}{2}\bigg)\psi=E\psi
+\end{equation}
+
+$\hat{a}_\pm$ is called the ladder operator, if the operator acts on the wave function it will either increase or decrease the energy level by $\hbar\omega$. $\hat{a}_-$ is the lowering operator and $\hat{a}_+$ is the raising operator. To continue we first determine $\psi_0$ for which $a_-\psi_0=0$. Such that we find
+
+\begin{equation}
+	\psi_0(x)=Ae^{-\frac{m\omega}{2m}x^2}\ , \ \ A=\bigg(\frac{m\omega}{\pi\hbar}\bigg)^{1/4}
+\end{equation}
+
+Where $A$ was found by normalizing $\psi_0(x)$. The energy of this state, that is the ground state, is $E_0=(1/2)\hbar\omega$. Then every step up the energy ladder will be with increments of $\hbar\omega$,
+
+\begin{equation}
+	E_n=\bigg(n+\frac{1}{2}\bigg)\hbar\omega
+\end{equation}
+
+and $\psi_n$ can be determined by applying the raising operator:
+
+\begin{equation}
+	\psi_n(x)=A_n(a_+)^n\,\psi_0(x)
+\end{equation}
+
+Now to get $A_n$ we note that $\hat{a}_\pm\psi_n$ is proportional to $\psi_{n\pm 1}$, thus
+
+\begin{equation}
+	\hat{a}_+\psi_n=c_n\psi_{n+1}\quad\text{and}\quad\hat{a}_-\psi_n=d_n\psi_{n-1}
+\end{equation}
+
+We find that $c_n=\sqrt{n+1}$ and $d_n=\sqrt{n}$, such that
+
+\begin{equation}
+	\hat{a}_+\psi_n=\sqrt{n+1}\psi_{n+1}\quad\text{and}\quad\hat{a}_-\psi_n=\sqrt{n}\psi_{n-1}
+\end{equation}
+
+Such that $\psi_n$ is given by
+
+\begin{equation}
+	\psi_n(x)=\frac{1}{\sqrt{n!}}(a_+)^n\,\psi_0(x)
+\end{equation}
+
+\subsection{Analytic method}
+
+Let
+
+\begin{equation}
+	\xi\equiv\sqrt{\frac{m\omega}{\hbar}}x
+\end{equation}
+
+Such that the Schrodinger equation becomes
+
+\begin{equation}
+	\frac{d^2\psi}{d\xi^2}=\big(\xi^2-K\big)\psi
+\end{equation}
+
 \end{document}
 
