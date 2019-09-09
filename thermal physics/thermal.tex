@@ -168,5 +168,82 @@ It is a probability distribution based on \textbf{Bernoulli trials}, which are e
 
 and the mean of the distribution is $\langle k \rangle=np$ and the variance is $\sigma_k^2=np(1-p)$.
 
+\section{Temperature and the Boltzmann factor}
+
+\subsection{Thermal equilibrium}
+
+Suppose two bodies are in thermal contact with one another, heat will flow from the hotter to the colder body. At a certain moment no net flow of heat will happen, the energy and temperature will no longer change with time. This is called the \textbf{Thermal equilibrium}, the process of reaching it is called \textbf{thermalization}.
+
+\subsection{The zeroth law of thermodynamics}
+
+It says that two systems, each, separately in thermal equilibrium with a third, are in equilibrium with each other. 
+
+\subsection{On thermometers}
+
+A working thermometer should have a heat capacity that is less than that of the measured object. Some common methods of measuring temperature include (i) the fact that liquids expand, (ii) that the resistance of certain materials depend on temperature, or (iii) letting liquid coexist with the vapour and measuring the pressure of the vapour.
+
+\subsection{Microstates and macrostates}
+
+Let's consider the example of a hundred coin flips. Here the \textbf{microstates} would be either heads or tails (note microstates are all equally likely). Macrostates would be the total outcome, so how many heads or tails (these are not equally likely).
+
+\subsection{The statistical definition of temperature}
+
+Let's imagine two systems in thermal contact, otherwise they are isolated. The total energy is $E=E_1+E_2=\text{constant}$. The first system can be in any one of $\Omega_1(E_1)$ microstates and the second system can be in any one of $\Omega_2(E_2)$. The total system can then be in any of $\Omega_1(E_1)\Omega_2(E_2)$ microstates.
+
+\bigskip
+
+If we assume that the system is in thermal equilibrium, the energies $E_1$ and $E_2$ are fixed. To continue we'll try to maximize $\Omega_1(E_1)\Omega_2(E_2)$.
+
+\begin{align}
+	\frac{d}{dE_1}\bigg\{\Omega_1(E_1)\Omega_2(E_2)\bigg\}=\Omega_2(E_2)\frac{d\Omega_1(E_1)}{dE_1}+\Omega_1(E_1)\frac{d\Omega_2(E_2)}{dE_2}\frac{dE_2}{dE_1}=0
+\end{align}
+
+Note that $dE_1=-dE_2$ therefore $dE_1/dE_2=-1$, since $E=E_1+E_2$. We can use that to rewrite the previous expression to
+
+\begin{equation}
+	\frac{1}{\Omega_1}\frac{d\Omega_1}{dE_1}=\frac{1}{\Omega_2}\frac{d\Omega_2}{dE_2}\quad\Rightarrow\quad\frac{d\ln\Omega_1}{dE_1}=\frac{d\ln\Omega_2}{dE_2}
+\end{equation}
+
+Let $d\ln\Omega/dE$ be identified with a temperature $T$ such that $T_1=T_2$. We can then define temperature by
+
+\begin{equation}
+	\frac{1}{k_BT}=\frac{d\ln\Omega}{dE}\quad\Rightarrow\quad\frac{1}{T}=\frac{dS}{dE}
+\end{equation}
+
+Where $S$ is called entropy. Often we will use 
+
+\begin{equation}
+	\beta\equiv\frac{1}{k_BT}
+\end{equation}
+
+since it is a frequently used quantity.
+
+\subsection{Ensembles}
+
+\textbf{Ensembles} are idealizations consisting of a large number of virtual copies of a system, considered all at once, each which represent a possible state of the real system. The main ensembles are
+
+\begin{enumerate}
+	\item Micro canonical ensemble: an ensemble of systems that each have the same fixed energy.
+	\item Canonical ensemble: an ensemble of systems, each that exchange its energy with a large reservoir of heat. This fixes the temperature.
+	\item Grand canonical ensemble: aside from the canonical ensemble also particles can be exchanged with the reservoir. This fixes the temperature and the chemical potential.
+\end{enumerate}
+
+\subsection{The canonical ensemble}
+
+To examine the canonical ensemble we shall imagine a reservoir with energy $E-\epsilon$, where $\epsilon$ is the energy of the system and $E$ the total energy. (We shall assume that for each allowed energy there is one microstate.) The probability $P(\epsilon)$ that the system has energy $\epsilon$ is proportional to $\Omega(E-\epsilon)$ times the number microstates, which is one.
+
+
+\begin{align}
+	P(\epsilon)&\propto \Omega(E-\epsilon)=\Omega(E) e^{-\epsilon/k_BT}\\[1em]
+    P(\epsilon)&\propto e^{-\epsilon/k_BT}
+\end{align}
+
+Which is called the \textbf{Boltzmann distribution} and $e^{-\epsilon/k_BT}$ is called the \textbf{Boltzmann factor}. If a system is in contact with a reservoir and has a microstate $r$, with energy $E_r$, then
+
+\begin{equation}
+	P(\text{microstate}\ r)=\frac{e^{E_r/k_BT}}{\sum_i e^{E_i/k_BT}}=\frac{e^{E_r/k_BT}}{Z}
+\end{equation}
+
+where $Z$ is called the \textbf{partition function}.
 \end{document}
 
