@@ -419,5 +419,79 @@ Such that the Schrodinger equation becomes
 	\frac{d^2\psi}{d\xi^2}=\big(\xi^2-K\big)\psi
 \end{equation}
 
+If we assume that $\xi^2>>K$ then
+
+\begin{equation}
+	\frac{d^2\psi}{d\xi^2}\approx\xi^2\psi
+\end{equation}
+
+Which has a (valid) solution equal to
+
+\begin{equation}
+	\psi(\xi)=h(\xi)e^{-\xi^2/2}
+\end{equation} 
+
+Substituting this back into the time-independent Schrodinger equation yields
+
+\begin{equation}
+\frac{d^2h}{d\xi^2}-2\xi\frac{dh}{d\xi}+(K+1)h=0
+\end{equation}
+
+To solve this equation we shall try a solution of the form
+
+\begin{equation}
+	h(\xi)=\sum_{j=0}^{\infty}a_j\xi^j
+\end{equation}
+
+Such that
+
+\begin{align}
+	\frac{dh}{d\xi}&=\sum_{j=0}^{\infty}ja_j\xi^j-1\\[0.5em]
+	\frac{d^2h}{d\xi^2}&=\sum_{j=0}^{\infty}(j+1)(j+2)a_{j+2}\xi^j
+\end{align}
+
+So we have that
+
+\begin{equation}
+	(j+1)(j+2)a_{j+2}-2ja_j+(K-1)a_j=0\quad\Rightarrow\quad a_{j+2}=\frac{(2j+1-K)}{(j+1)(j+2)}a_j
+\end{equation}
+
+The solution is just a combination of the even and odd terms:
+
+\begin{equation}
+	h(\xi)=h_{even}(\xi)+h_{odd}(\xi)
+\end{equation}
+
+Where 
+
+\begin{align}
+	h_{even}&=a_0+a_2\xi^2+a_4\xi^4+\dots\\[0.5em]
+	h_{even}&=a_1\xi+a_3\xi^3+\dots
+\end{align}
+
+For physical solutions it is required that $K=2n+1$, such that we again obtain that
+
+\begin{equation}
+	E_n=\bigg(n+\frac{1}{2}\bigg)\hbar\omega
+\end{equation}
+
+Therefore
+
+\begin{equation}
+ a_{j+2}=\frac{-2(n-j)}{(j+1)(j+2)}a_j
+\end{equation}
+
+Such that we in the end arrive at the solution
+
+\begin{equation}
+	\psi_n(x)=\bigg(\frac{m\omega}{\pi\hbar}\bigg)^{1/4}\frac{1}{\sqrt{2^n n!}}H_n(\xi)e^{-\xi^2/2}
+\end{equation}
+
+Where $H_n$ is called the Hermite polynomial. E.g. $H_0=1$, $H_1=2\xi$, and $H_3=4\xi^2-12\xi$.
+
+\bigskip
+
+\paragraph{Note:} $n$ signifies the highest $j$, such that $a_{n+2}=0$, this will truncate either the odd or even series; the other one must be zero from the start. $a_1=0$ if $n$ is even and $a_0=0$ if $n$ is odd.
+
 \end{document}
 

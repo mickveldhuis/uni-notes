@@ -245,5 +245,75 @@ Which is called the \textbf{Boltzmann distribution} and $e^{-\epsilon/k_BT}$ is 
 \end{equation}
 
 where $Z$ is called the \textbf{partition function}.
+
+\section{The Maxwell-Boltzmann distribution}
+
+\subsection{Multilevel systems and the Boltzmann distribution}
+
+Suppose you have a system with multiple energy levels, then the higher the state the smaller the occupancy and the higher the temperature, the more probable it is that higher states are occupied. This statement is summarized by
+
+\begin{equation}
+	\frac{N_i}{N_j}=e^{-\frac{E_i-E_j}{k_BT}}
+\end{equation}
+
+\subsection{The velocity distribution}
+
+The velocity distribution is defined as the fraction of molecules with velocities between $\bm{v}$ and $\bm{v}+d\bm{v}$. Assuming we are only looking in one direction, say $x$, then the velocity distribution is given as
+
+\begin{equation}
+	g(v_x)\propto e^{-mv_x^2/2k_BT}\quad\Rightarrow\quad g(v_x)=\sqrt{\frac{m}{2\pi k_BT}}\,e^{-mv_x^2/2k_BT}
+\end{equation}
+
+The rightmost expression is found by normalization. For this distribution we have that
+
+\begin{align}
+	\langle v_x\rangle&=0\\[.5em]
+	\langle |v_x|\rangle&=\sqrt{\frac{2k_BT}{\pi m}}\\[.5em]
+	\langle v_x^2\rangle&=\frac{k_BT}{m}\\
+\end{align}
+
+Now to generalize, and go back to the original statement, between $\bm{v}$ and $\bm{v}+d\bm{v}$
+
+\begin{equation}
+	g(v_x)\,dv_x\,g(v_y)\,dv_y\,g(v_z)\,dv_z\propto e^{-mv^2/2k_BT}\,dv_x\,dv_y\,dv_z
+\end{equation}
+
+\subsection{The speed distribution}
+
+Now we are looking at the molecules between $v$ and $v+dv$. Which in velocity space is a spherical shell of radius $v$, with thickness $dv$. The volume of that part of the shell is given as $4\pi v^2\,dv$. Such that the speed distribution is given as
+
+\begin{equation}
+	f(v)\,dv\propto v^2\,dv\,e^{-mv^2/2k_BT}
+\end{equation}
+
+Note that the $4\pi$ is absorbed into the proportionality. Now to normalize it, integrate from $0$ to $\infty$ (since $v>0$):
+
+\begin{equation}
+	\int_0^\infty f(v)\,dv=1\quad\Rightarrow\quad f(v)\,dv=\frac{4}{\sqrt{\pi}}\bigg(\frac{m}{2k_BT}\bigg)^{3/2}v^2\,e^{-mv^2/2k_BT}\,dv
+\end{equation}
+
+This expression is called the Maxwell-Boltzmann distribution. For which
+
+
+\begin{align}
+\langle v\rangle&=\sqrt{\frac{8k_BT}{\pi m}}\\[.5em]
+\langle v^2\rangle&=\frac{3k_BT}{m}\\[.5em]
+v_{rms}&=\sqrt{\langle v^2\rangle}\propto m^{-1/2}
+\end{align}
+
+From this we can derive an expression for the mean kinetic energy of a gas molecule:
+
+\begin{equation}
+	\langle T\rangle =\frac{1}{2}m\langle v^2\rangle=\frac{3}{2}k_BT
+\end{equation}
+
+We can also derive the value of $v$ such that $f(v)$ is at a maximum, this is simply
+
+\begin{equation}
+	\frac{df}{dv}=0\quad\Rightarrow\quad v_{max}=\sqrt{\frac{2k_BT}{m}}
+\end{equation}
+
+Such that $v_{max} < \langle v\rangle < v_{rms}$.
+
 \end{document}
 
