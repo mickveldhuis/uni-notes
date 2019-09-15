@@ -31,7 +31,7 @@
 
 \subsection*{The mole}
 
-A \textbf{mole} of a certain atom is equivalent to an \textbf{Avogadro number} $N_a$ of atoms. Where $N_A=6.022\cdot 10^23$.
+A \textbf{mole} of a certain atom is equivalent to an \textbf{Avogadro number} $N_a$ of atoms. Where $N_A=6.022\cdot 10^{23}$.
 
 \subsection*{The ideal gas law}
 
@@ -241,7 +241,7 @@ To examine the canonical ensemble we shall imagine a reservoir with energy $E-\e
 Which is called the \textbf{Boltzmann distribution} and $e^{-\epsilon/k_BT}$ is called the \textbf{Boltzmann factor}. If a system is in contact with a reservoir and has a microstate $r$, with energy $E_r$, then
 
 \begin{equation}
-	P(\text{microstate}\ r)=\frac{e^{E_r/k_BT}}{\sum_i e^{E_i/k_BT}}=\frac{e^{E_r/k_BT}}{Z}
+	P(\text{microstate}\ r)=\frac{e^{-E_r/k_BT}}{\sum_i e^{-E_i/k_BT}}=\frac{e^{-E_r/k_BT}}{Z}
 \end{equation}
 
 where $Z$ is called the \textbf{partition function}.
@@ -314,6 +314,85 @@ We can also derive the value of $v$ such that $f(v)$ is at a maximum, this is si
 \end{equation}
 
 Such that $v_{max} < \langle v\rangle < v_{rms}$.
+
+\section{Pressure}
+
+Pressure is on of the most fundamental variables in the study of gasses and is defined as the force over the area on which it is acting. The pressure $p$ in a volume $V$ depends on the temperature $T$ via an equation of state $p=f(T,V,N)$, one such example is the ideal gas law.
+
+\subsubsection{Molecular distributions}
+
+If we consider a sphere in which molecular are moving in different directions, we define the \textbf{solid angle} $\Omega$ (measured in \textbf{steradians}; analogous to the angle $\theta$ in 2D), as
+
+\begin{equation}
+	\Omega=\frac{A}{r^2}
+\end{equation}
+
+A full sphere subtends a solid angle of $\Omega=4\pi$. Such that the fraction of molecules whose trajectories lie in an elemental solid angle $d\Omega$ is
+
+\begin{equation}
+	\frac{d\Omega}{4\pi}
+\end{equation}
+
+If we pick a specific direction then $d\Omega$ corresponds to molecules traveling at angles between $\theta$ and $\theta + d\theta$. In the end the number of molecules per unit volume given by
+
+\begin{equation}
+	nf(v)dv\,\frac{1}{2}\sin\theta\,d\theta
+\end{equation}
+
+have speeds between $v$ and $v+dv$ and are traveling at angles between $\theta$ and $\theta + d\theta$. If we consider a molecules hitting a wall with an angle $\theta$ to the normal then the number of molecules hitting it per unit area and unit time is
+
+\begin{equation}
+	v\cos\theta\,nf(v)dv\,\frac{1}{2}\sin\theta\,d\theta
+\end{equation}
+
+\subsubsection{The ideal gas law}
+
+We can now calculate the pressure of a gas on its container. First note that each molecule hitting the walls of it have a momentum change of $2mv\cos\theta$. Such that if we multiply it with the result from equation (42) and integrate over all $v$ and over the angles $0\rightarrow\pi/2$ we get the pressure $p$:
+
+\begin{equation}
+	p=\frac{1}{3}nm\langle v^2\rangle\ , \ \ n=\frac{N}{V}
+\end{equation}
+
+Which can be rewritten as
+
+\begin{equation}
+	pV=Nk_BT\quad\Rightarrow\quad p=nk_BT
+\end{equation}
+
+The familiar ideal gas law.
+
+\subsubsection{Dalton's law}
+
+If you have a mixture of gases in thermal equilibrium then the total pressure is the sum of partial pressures $p_i=n_ik_BT$
+
+\begin{equation}
+	p=\bigg(\sum_{i}n_i\bigg)k_BT=\sum_{i}p_i
+\end{equation}
+
+\subsection{Effusion}
+
+\textbf{Effusion} is the process by which gas escapes from a small hole, the rate of a gas doing so is given to be proportional to $1/\sqrt{m}$ (also called \textbf{Graham's law of effusion}).
+
+\subsubsection{Flux}
+
+Let's determine the molecular flux $\Phi$, the number of molecules striking a unit area per second. It is given as
+
+\begin{equation}
+	\Phi=\frac{1}{4}n\langle v\rangle=\frac{p}{\sqrt{2\pi mk_BT}}
+\end{equation}
+
+This expression shows us that indeed, the effusion rate is as given by Graham's law.
+
+\subsubsection{Effusion rate}
+
+The effusion rate (given a hole of area $A$) is given as $\Phi A$. Effusion preferentially selects faster molecules, therefore the speed distribution isn't Maxwellian. This is due to faster molecules having a greater probability of reaching the hole. Now
+
+\begin{equation}
+	f(v)\propto v^3 e^{-mv^2/2k_BT}
+\end{equation}
+
+Therefore the molecules in an effusing gas have a higher energy. Note for effusion the diameter of the hole has to be much less than the mean free path $\lambda$.
+
 
 \end{document}
 
