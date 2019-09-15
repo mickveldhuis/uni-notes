@@ -493,5 +493,52 @@ Where $H_n$ is called the Hermite polynomial. E.g. $H_0=1$, $H_1=2\xi$, and $H_3
 
 \paragraph{Note:} $n$ signifies the highest $j$, such that $a_{n+2}=0$, this will truncate either the odd or even series; the other one must be zero from the start. $a_1=0$ if $n$ is even and $a_0=0$ if $n$ is odd.
 
+\subsection{The free particle}
+
+We consider the case where $V(x)=0$, the free particle. The beginning is similar to the infinite potential well, but we try a solution of the form
+
+\begin{equation}
+	\psi(x)=Ae^{ikx}+Be^{-ikx}
+\end{equation}
+
+Note that since there are no boundary conditions; the free particle can have any positive energy. Such that
+
+\begin{equation}
+\psi(x)=Ae^{ik\big(x-\frac{\hbar k}{2m}t\big)}+Be^{-ik\big(x-\frac{\hbar k}{2m}t\big)}\quad\Rightarrow\quad \Psi_k(x,t)=Ae^{i\big(kx-\frac{\hbar k^2}{2m}t\big)}
+\end{equation}
+
+where
+
+\begin{equation}
+	k\equiv\pm\sqrt{\frac{2mE}{\hbar}}
+\end{equation}
+
+Which means that for $k>0$ the waves are traveling to the right, and for $k<0$ are traveling to the left. So note that the stationary states in this scenario are propagating waves, with wavelengths $\lambda=2\pi/|k|$, for which $p=\hbar k$. They propagate with a speed 
+
+\begin{equation}
+	v_{quantum}=\sqrt{\frac{E}{2m}}
+\end{equation}
+
+Which is twice that of its classical counterpart. Now it is important to realize that this wave function is not normalizable. As such there is no such thing as a free particle with definite energy. The full solution is
+
+\begin{equation}
+	\Psi(x,t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\psi(k)e^{i\big(kx-\frac{\hbar k^2}{2m}t\big)}\,dk
+\end{equation}
+
+Note that $c_n\rightarrow (1/\sqrt{2\pi})\phi(k)\,dk$, this wave function can be normalized for appropriate $\phi(k)$. We now want to find $\phi(k)$ so as to match $\Psi(x,0)$.
+
+\begin{equation}
+	\Psi(x,0)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}\,dk
+\end{equation}
+
+The solution is given by the Fourier transform
+
+\begin{equation}
+	\phi(k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}\,dx
+\end{equation}
+
+
+
+
 \end{document}
 
