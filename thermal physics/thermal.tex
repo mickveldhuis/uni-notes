@@ -319,7 +319,7 @@ Such that $v_{max} < \langle v\rangle < v_{rms}$.
 
 Pressure is on of the most fundamental variables in the study of gasses and is defined as the force over the area on which it is acting. The pressure $p$ in a volume $V$ depends on the temperature $T$ via an equation of state $p=f(T,V,N)$, one such example is the ideal gas law.
 
-\subsubsection{Molecular distributions}
+\subsection{Molecular distributions}
 
 If we consider a sphere in which molecular are moving in different directions, we define the \textbf{solid angle} $\Omega$ (measured in \textbf{steradians}; analogous to the angle $\theta$ in 2D), as
 
@@ -345,7 +345,7 @@ have speeds between $v$ and $v+dv$ and are traveling at angles between $\theta$ 
 	v\cos\theta\,nf(v)dv\,\frac{1}{2}\sin\theta\,d\theta
 \end{equation}
 
-\subsubsection{The ideal gas law}
+\subsection{The ideal gas law}
 
 We can now calculate the pressure of a gas on its container. First note that each molecule hitting the walls of it have a momentum change of $2mv\cos\theta$. Such that if we multiply it with the result from equation (42) and integrate over all $v$ and over the angles $0\rightarrow\pi/2$ we get the pressure $p$:
 
@@ -361,7 +361,7 @@ Which can be rewritten as
 
 The familiar ideal gas law.
 
-\subsubsection{Dalton's law}
+\subsection{Dalton's law}
 
 If you have a mixture of gases in thermal equilibrium then the total pressure is the sum of partial pressures $p_i=n_ik_BT$
 
@@ -369,11 +369,11 @@ If you have a mixture of gases in thermal equilibrium then the total pressure is
 	p=\bigg(\sum_{i}n_i\bigg)k_BT=\sum_{i}p_i
 \end{equation}
 
-\subsection{Effusion}
+\section{Effusion}
 
 \textbf{Effusion} is the process by which gas escapes from a small hole, the rate of a gas doing so is given to be proportional to $1/\sqrt{m}$ (also called \textbf{Graham's law of effusion}).
 
-\subsubsection{Flux}
+\subsection{Flux}
 
 Let's determine the molecular flux $\Phi$, the number of molecules striking a unit area per second. It is given as
 
@@ -383,7 +383,7 @@ Let's determine the molecular flux $\Phi$, the number of molecules striking a un
 
 This expression shows us that indeed, the effusion rate is as given by Graham's law.
 
-\subsubsection{Effusion rate}
+\subsection{Effusion rate}
 
 The effusion rate (given a hole of area $A$) is given as $\Phi A$. Effusion preferentially selects faster molecules, therefore the speed distribution isn't Maxwellian. This is due to faster molecules having a greater probability of reaching the hole. Now
 
@@ -393,6 +393,41 @@ The effusion rate (given a hole of area $A$) is given as $\Phi A$. Effusion pref
 
 Therefore the molecules in an effusing gas have a higher energy. Note for effusion the diameter of the hole has to be much less than the mean free path $\lambda$.
 
+\section{The mean free path \& collisions}
+
+\subsection{The mean collision time}
+
+in a time $dt$, our molecule will sweep out $\sigma v dt$. If we have $n$ molecules per unit volume then the probability of a collision in that time is given by $n\sigma v\,dt$. We then obtain the probability of a molecule surviving without colliding up until time $t$, which is
+
+\begin{equation}
+	P(t)=e^{-n\sigma vt}
+\end{equation}
+
+The probability of doing so and then colliding in the next interval $dt$ is given by
+
+\begin{equation}
+	e^{-n\sigma vt}n\sigma v\,dt
+\end{equation}
+
+Which in the end yields the \textbf{mean scatter time} $\tau$, the time between collisions:
+
+\begin{equation}
+	\tau = \frac{1}{n\sigma v}
+\end{equation}
+
+\subsection{The collision cross-section}
+
+What is $\sigma$? for two colliding particles the collision cross-section depends on the hard-sphere radii of both particles, so $\sigma_{12}=\pi(a_1+a_2)^2$. For two identically sized particles that is $\pi d^2$, where $d$ is their diameter.
+
+\subsection{The mean free path}
+
+The mean free path, given that $\langle v_r\rangle=\sqrt{2}\langle v\rangle$, is defined as
+
+\begin{equation}
+	\lambda = \frac{1}{n\sigma\sqrt{2}}\quad\Rightarrow\quad \lambda = \frac{k_BT}{p\sigma\sqrt{2}}
+\end{equation}
+
+Note that both $\tau$ and $\lambda$ decrease by increasing pressure at fixed temperature. Thus the frequency of collision increases with an increase in pressure.
 
 \end{document}
 
