@@ -95,5 +95,41 @@ Where
 	\int_{-\infty}^{\infty} P(Y|X)\,dY = 1
 \end{equation}
 
+\section{Parameter estimation}
+
+\subsection{The best estimate}
+
+The best estimate is the value, say $X_0$, such that the posterior is at a maximum. So
+
+\begin{equation}
+	\frac{dP}{dX}\bigg|_{X=X_0}=0\ \ \text{and}\ \  \frac{d^2P}{dX^2}\bigg|_{X=X_0}<0
+\end{equation}
+
+The reliability of our best estimate is then given by the width of the posterior about $X=X_0$. To find this width we take the Taylor expansion of the natural logarithm of the posterior about $X=X_0$:
+
+\begin{equation}
+	L=\ln\big[P(X|\{data\})\big]\quad\Rightarrow\quad L=L(X_0)+\frac{1}{2}\frac{d^2P}{dX^2}\bigg|_{X_0}(X-X_0)^2+\dots
+\end{equation}
+
+Since the first term of the expansion is constant we can discard it. Thus we only care about the quadratic term, ignoring higher order terms. Such that
+
+\begin{equation}
+	[P(X|\{data\})\approx A\exp\bigg[\frac{1}{2}\frac{d^2P}{dX^2}\bigg|_{X_0}(X-X_0)^2\bigg]
+\end{equation}
+
+For $A$ is some normalization constant. We basically approximated the posterior by the Gaussian (or normal) distribution:
+
+\begin{equation}
+	P(x|\mu, \sigma)=\frac{1}{\sigma\sqrt{2\pi}}\exp\bigg[-\frac{(x-\mu)^2}{2\sigma^2}\bigg]
+\end{equation}
+
+Such that $X=X_0\pm\sigma$, where
+
+\begin{equation}
+	\sigma = \bigg(-\frac{d^2P}{dX^2}\bigg|_{X_0}\bigg)^{-1/2}
+\end{equation}
+
+Note that for $X$ within $\pm\sigma$, the probability is $67\%$, for $\pm 2\sigma$ that is $95\%$, etc.
+
 \end{document}
 
