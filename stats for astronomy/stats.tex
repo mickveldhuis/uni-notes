@@ -129,7 +129,71 @@ Such that $X=X_0\pm\sigma$, where
 	\sigma = \bigg(-\frac{d^2P}{dX^2}\bigg|_{X_0}\bigg)^{-1/2}
 \end{equation}
 
-Note that for $X$ within $\pm\sigma$, the probability is $67\%$, for $\pm 2\sigma$ that is $95\%$, etc.
+Note that for $X$ within $\pm\sigma$, the probability is $67\%$, for $\pm 2\sigma$ that is $95\%$, etc. Also note that in the case of an asymmetric posterior the best estimate is not really given by $X_0$ (also called the mode), but the actual value is more likely to be on either side of the mode. We then use the mean (or expectation value) since it takes the asymmetry into account:
+
+\begin{equation}
+	E(X)=\langle X\rangle = \int X\,P(X|\{data\})\,dX
+\end{equation}  
+
+Then there's also the median (denoted by $\mu_{1/2}$), an estimate of the middle of a distribution, which can sometimes be a reasonable approximation of the best estimate of a distribution with significant outliers. The median is such that half of the points will lie above and below it.
+
+\subsection{Average of the Gaussian distribution}
+
+\subsubsection*{If $\sigma=$ constant}
+
+For a Gaussian distribution the best estimate $\mu$ is just the arithmetic average of the data points $\{x_k\}$:
+
+\begin{equation}
+	\mu_0=\frac{1}{N}\sum_{k=1}^{N}x_k
+\end{equation}
+
+And our confidence in the reliability of $\mu_0$ is taken into account as follows, such that the value of $\mu$ is given to be
+
+\begin{equation}
+	\mu = \mu_0\pm \frac{\sigma}{\sqrt{N}}
+\end{equation}
+
+\subsubsection*{If $\sigma\not=$ constant}
+
+In this case we get a weighted average
+
+\begin{equation}
+	\mu_0=\sum_k w_kx_k \bigg/\sum_k w_k, \ \text{where} \ \ w_k=\frac{1}{\sigma_k^2}
+\end{equation}
+
+where $\sigma_k^2$ is the variance of data point $k$. Such that $\mu$ is given by
+
+\begin{equation}
+	\mu = \mu_0\pm \bigg(\sum_k w_k\bigg)^{-1/2}
+\end{equation}
+
+\subsection{The variance}
+
+The variance of the posterior is the expectation value of the square of the deviations from the mean
+
+\begin{equation}
+	\text{Var}(X)=\big\langle (X-\mu)^2\big\rangle=\int (X-\mu)^2P(X|\{data\})\,dX
+\end{equation}
+
+Which for the Gaussian distribution reduces to
+
+\begin{equation}
+	\big\langle (X-\mu)^2\big\rangle=\sigma^2
+\end{equation}
+
+Note $\sigma$ is called the standard deviation, and when $\mu=0$ it is called the root-mean square uncertainty.
+
+\subsection{The central limit theorem}
+
+It is the basic idea that any peaked, symmetric distribution with tails that asymptote to zero will eventually converge to a Gaussian will eventually converge to a Gaussian distribution for $N\rightarrow\infty$. It is important to note that it will not work for all distributions, but we will get to that.
+
+\subsection{Probability distributions}
+
+\subsection{Binomial distribution}
+
+\subsection{Poisson distribution}
+
+\subsection{Lorentzian / Cauchy distribution}
 
 \end{document}
 
