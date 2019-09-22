@@ -537,8 +537,67 @@ The solution is given by the Fourier transform
 	\phi(k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}\,dx
 \end{equation}
 
+\subsection{The delete function potential}
+
+\subsection{The finite square well}
+
+\[V(x) = \left\{
+\begin{array}{lr}
+-V_0, &-a \le x \le a\\
+0, &|x|>a
+\end{array}
+\right.
+\]
+
+$V_0>0$, such that we have bound states with $E<0$ and scatter states with $E>0$. For $x<-a$, 
+
+\begin{equation}
+	\frac{d^2\psi}{dx^2}=\kappa^2\psi, \ \text{where}\ \ \kappa=\frac{\sqrt{-2mE}}{\hbar}
+\end{equation}
+
+Note that $\kappa$ is positive and real. With solution $\psi(x)=Be^{\kappa x}$, the other term is left out since it will blow up in the limit for $x\rightarrow -\infty$. For $-a\le x\le a$ we have
 
 
+\begin{equation}
+\frac{d^2\psi}{dx^2}=-l^2\psi, \ \text{where}\ \ \kappa=\frac{\sqrt{2m(E+V_0)}}{\hbar}
+\end{equation}
+
+with solution $\psi(x)=C\sin(lx)+D\cos(lx)$. Lastly, for $x>a$ the solution is given as $\psi(x)=Fe^{\kappa x}$. Since $\psi(x)$ is continuous at the boundaries we get the equation $\kappa=l\tan(la)$. This is a formula for the allowed energies. Now let $z\equiv la$ and $z_0=(a/\hbar )\sqrt{2mV_0}$. Such that 
+
+\begin{equation}
+	\tan z = \sqrt{\bigg(\frac{z_0}{z}\bigg)^2-1}
+\end{equation}
+
+This is a transcendental equation for $z$ (thus also for the energies $E$). Now there are two cases of interest:
+
+\begin{enumerate}
+	\item Wide, deep well: If $z_0$ is very large, the intersections (in a graph of both sides of equation (75) versus $z$, these intersections are the allowed energies). These occur at $z_n\approx n\pi/2$, so $$E_n+V_0\approx\frac{n^2\pi^2\hbar^2}{2m(2a)^2}$$ for $n=1,3,5,\dots$ Note that for any finite $V_0$ there are only a finite number of bound states.
+	\item Shallow, narrow well: As $z_0$ (which is a measure for the well's size) decreases, there will be fewer and fewer states. Until there is one left, there can never be zero bound states.  
+\end{enumerate}
+
+Now onto the scatter states, where $E>0$, for $x<-a$ we obtain
+
+\begin{equation}
+	\psi(x)=Ae^{ikx}+Be^{-ikx}, \ \text{where}\ \ \kappa=\frac{\sqrt{2mE}}{\hbar}
+\end{equation}
+
+For $-a\le x\le a$ nothing changes. And for $x>a$ we have $\psi(x)=Fe^{ikx}$. By application of the boundary conditions we can obtain the transmission coefficient
+
+\begin{equation}
+	T^{-1} = 1+\frac{V_0^2}{4E(E+V_0)}\sin^2\bigg(\frac{2a}{\hbar}\sqrt{2m(E+V_0)}\bigg)
+\end{equation}
+
+Note the well becomes transparent ($T=1$) when the sine is zero, so for
+
+\begin{equation}
+	\frac{2a}{\hbar}\sqrt{2m(E+V_0)}=n\pi
+\end{equation}
+
+for $n$ is any integer. Thus the energies for perfect transmission are given as
+
+\begin{equation}
+	E_n+V_0=\frac{n^2\pi^2\hbar^2}{2m(2a)^2}
+\end{equation}
 
 \end{document}
 
