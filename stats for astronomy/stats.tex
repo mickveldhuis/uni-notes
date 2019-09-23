@@ -187,13 +187,78 @@ Note $\sigma$ is called the standard deviation, and when $\mu=0$ it is called th
 
 It is the basic idea that any peaked, symmetric distribution with tails that asymptote to zero will eventually converge to a Gaussian will eventually converge to a Gaussian distribution for $N\rightarrow\infty$. It is important to note that it will not work for all distributions, but we will get to that.
 
-\subsection{Probability distributions}
+\section{Probability distributions}
+
+\subsection{Permutations and combinations}
+
+First off, the number of ways one can arrange $n$ objects, say coins in a line, is $n!$. Then the number of permutations
+
+\begin{equation}
+	{}^nP_m=\frac{n!}{(n-m)!}
+\end{equation}
+
+gives the number of ways one can sequentially pick $m$ objects from $n$ different objects. Lastly if the order is irrelevant we get the number of combinations
+
+\begin{equation}
+	{}^nC_m=\frac{n!}{(n-m)!m!}=\begin{pmatrix}
+	n\\ m
+	\end{pmatrix}
+\end{equation}
+
+which is the number of ways of selecting $m$ integers out of $n$ objects.
 
 \subsection{Binomial distribution}
 
+The binomial distribution gives the probability of having $r$ successes in $N$ trials. $P(\text{success})=p$ and $P(\text{failure})=1-p=q$, then
+
+\begin{equation}
+	P(r|N)=\begin{pmatrix} n\\ m \end{pmatrix}p^rq^{N-r}
+\end{equation} 
+
+For $r=0,1,2,\dots,N$. The expected value for $r$ and the variance are given to be
+
+\begin{equation}
+	\langle r\rangle = Np\quad\text{and}\quad \text{Var}(r)=Npq=Np(1-p)
+\end{equation}
+
 \subsection{Poisson distribution}
+
+From the binomial distribution we can derive the Poisson distribution if we assume that $r<<N$. Given that we know the expected value of $r$, $\langle r\rangle=\mu$, then 
+
+\begin{equation}
+	P(r|\mu)=\frac{\mu^r e^{-\mu}}{r!}
+\end{equation}
+
+Which gives the probability of observing $r$ events when we only know the expected value. Note that the variance is also given by $\mu$. \textbf{Note that often the Poisson distribution is denoted as follows}, where $r$ is exchanged for $N$:
+
+\begin{equation}
+P(N|\mu)=\frac{\mu^N e^{-\mu}}{N!}
+\end{equation}
+
+and thus $\langle N\rangle=\mu$.
+
+\subsection{Gaussian distribution}
+
+Note that the Gaussian has already been discussed, but I'd like to note here that the Gaussian could've been derived from the binomial distribution. Just like the Poisson distribution we assume that $r<<N$, but also that $\mu>>1$, such that we can use Sterling's formula,
+
+\begin{equation}
+	\ln(N!)\approx N\ln N-N+\frac{1}{2}\ln(2\pi N)
+\end{equation}
+
+Using this formula one could then continue the analysis, and derive the Gaussian distribution from the binomial distribution.
 
 \subsection{Lorentzian / Cauchy distribution}
 
-\end{document}
+The Lorentzian distribution is given by
 
+\begin{equation}
+	P(x|\alpha, \beta)=\frac{\beta}{\pi\big[\beta^2+(x-\alpha)^2\big]}
+\end{equation}
+
+It is symmetric with respect to the maximum, at $x=\alpha$, has a FWHM of $2\beta$, and an amplitude of $1/\pi\beta$. Note that for this distribution the expected value or rather mean does not exist, nor do the other moments such as the standard deviation.
+
+\subsection{Location and scale parameters}
+
+
+
+\end{document}
