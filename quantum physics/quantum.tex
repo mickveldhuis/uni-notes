@@ -613,5 +613,91 @@ for $n$ is any integer. Thus the energies for perfect transmission are given as
 	E_n+V_0=\frac{n^2\pi^2\hbar^2}{2m(2a)^2}
 \end{equation}
 
+\section{Formalism}
+
+\subsection{Hilbert spaces}
+
+In QM the state of a system is determined by its wave function, observables are represented by operators. And the language in which these communicate is the mathematical language of linear algebra. Such that a column vector $|\alpha\rangle$ is given as
+
+\begin{equation}
+	|\alpha\rangle=\begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n\end{pmatrix}
+\end{equation}
+
+And the inner product (which in general is a complex number) is defined as
+
+\begin{equation}
+	\langle\alpha |\beta\rangle = a_1^*b_1 + a_2^*b_2 + \dots + a_n^*b_n
+\end{equation}
+
+Remember that for physical states 
+
+\begin{equation}
+	\int |\Psi|^2\,dx=1
+\end{equation}
+
+So $\Psi$ is square integrable. In general the functions $f(x)$, that are square integrable, so
+
+\begin{equation}
+	\int_a^b |f(x)|^2\,dx<\infty
+\end{equation}
+
+constitute a vector space, this vector space is called a \textbf{Hilbert space}. Thus wave functions live in \textbf{Hilbert space}. (Note that often $a$ and $b$ are $\pm\infty$.) The inner product in Hilbert space is defined as follows, for two functions $f(x)$ and $g(x)$
+
+\begin{equation}
+	\langle f | g \rangle\equiv\int_a^b f(x)^*g(x)\,dx
+\end{equation}
+
+If both functions are in Hilbert space then the inner product definitely exists. Note that (1) $\langle g | f \rangle=\langle f | g \rangle^*$, (2)
+
+\begin{equation}
+	\langle f | f \rangle\ge 0
+\end{equation}
+
+(3) a function $f(x)$ is normalized iff $\langle f | f \rangle=1$ (4) lastly a set of functions is complete if any other function in Hilbert space can be expressed as a linear combination of them:
+
+\begin{equation}
+	f(x)=\sum c_nf_n(x)
+\end{equation}
+
+and if the functions $\{f_n(x)\}$ are orthonormal then the coefficients are given by
+
+\begin{equation}
+	c_n=\langle f_n|f\rangle
+\end{equation}
+
+\subsection{Observables}
+
+The expectation value of an observable $Q(x,p)$ can be rewritten using the inner product notation:
+
+\begin{equation}
+	\langle Q \rangle=\langle \Psi | \hat{Q}\Psi \rangle
+\end{equation}
+
+Note that $Q$ is real so $\langle Q \rangle=\langle Q \rangle^*$, but note that
+
+\begin{equation}
+	\langle \Psi | \hat{Q}\Psi \rangle=\langle \hat{Q}\Psi | \Psi \rangle
+\end{equation}
+
+Thus for any observable, given some function $f(x)$ it holds that
+
+\begin{equation}
+	\langle f | \hat{Q}f \rangle=\langle \hat{Q}f | f \rangle, \ \ \forall f(x)
+\end{equation}
+
+Such an operator is called \textbf{hermitian}. Thus observables are represented by hermitian operators. Note that the \textbf{hermitian conjugate} of an operator $\hat{Q}$ is the operator $\hat{Q}^\dagger$ such that
+
+\begin{equation}
+	\langle f | \hat{Q}g \rangle=\langle \hat{Q}^\dagger f | g \rangle, \ \ \forall f(x),g(x)
+\end{equation}
+
+So a hermitian operator has the property that $\hat{Q}=\hat{Q}^\dagger$. (In general, for matrices the hermitian conjugate is the transpose of the complex conjugate of said matrix.) A question one might ask is if there is any way to measure the same value $q$ for an observable $Q$ every time a system in a similar state as another system were measured. The answer is yes. These determinate states of $Q$ are eigenfunctions of $\hat{Q}$. Such that
+
+\begin{equation}
+	\hat{Q}\Psi=q\Psi
+\end{equation}
+
+Thus a measurement on such a state will certainly yield eigenvalue $q$. The collection of all the eigenvalues of an operator are called a spectrum, if linearly independent eigenfunctions yield the same eigenvalue then those spectra are said to be degenerate.
+
 \end{document}
 
