@@ -431,5 +431,59 @@ Note that both $\tau$ and $\lambda$ decrease by increasing pressure at fixed tem
 
 \section{Transport properties in gases}
 
+\subsection{Viscosity}
+
+Viscosity is the transfer of momentum. And it is the measure of the resistance of a fluid to the deformation produced by a shear stress. For instance for a shear stress 
+
+\begin{equation}
+	\tau_{xz}=\frac{F}{A}=\eta\frac{d\langle u_x\rangle}{dz}
+\end{equation}
+
+where $\eta$ is the viscosity. The velocity gradient also drives a momentum flux
+
+\begin{equation}
+	\Pi_z=-\eta\frac{\partial\langle u_x\rangle}{\partial z}
+\end{equation}
+
+where
+
+\begin{equation}
+	\eta = \frac{1}{3}nm\lambda\langle v\rangle
+\end{equation}
+
+Note that viscosity is not a function of pressure if it is not too high, or too low. $\eta\propto\sqrt{T}$ (this is a gas specific property). $\eta\propto \sqrt{m}/d^2$. These statements are all true assuming that $L>>\lambda>>d$, where $L$ is the container size, and $d$ the molecular diameter.
+
+\subsection{Thermal conductivity}
+
+This concerns the transport of heat. The heat flux $\bm{J}$ is given by
+
+\begin{equation}
+	\bm{J}=\kappa\nabla T
+\end{equation} 
+
+where $\kappa$ is the thermal conductivity. Note that the heat capacity of a gas molecule is $C_{molecule}=\frac{3}{2}k_B$ (is can be higher), and $\kappa=\frac{1}{3}C_V\lambda\langle v\rangle$ for $C_V=nC_{molecule}$. Similar to viscosity, the thermal conductivity is not a function of pressure and is proportional to the square root of the temperature, $\kappa\propto1/\sqrt{m}d^2$. A relation between the viscosity and thermal conductivity is given by
+
+\begin{equation}
+	\frac{\kappa}{\eta}=\frac{C_{molecule}}{m}
+\end{equation}
+
+\subsection{Diffusion}
+
+Diffusion is the transport of particles. Let there be $N^*(z)$ labeled molecules per unit volume. Such that the flux of molecules, e.g. parallel to the z-direction, is given by
+
+\begin{equation}
+	\Phi_z=-D\bigg(\frac{\partial n^*}{\partial z}\bigg)
+\end{equation}
+
+where $D$ is the coefficient of self-diffusion. From this follows the diffusion equation:
+
+\begin{equation}
+	\frac{\partial n^*}{\partial t}=D\nabla^2n^*\ ,\ \ D=\frac{1}{3}\lambda\langle v\rangle 
+\end{equation}
+
+Note that $D\propto p^{-1}$, $D\propto T^{3/2}$, $D\rho=\eta$, and lastly $D\propto 1/\sqrt{m}d^2$
+
+\section{Thermal diffusion}
+
 \end{document}
 
