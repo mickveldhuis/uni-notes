@@ -13,4 +13,4 @@ Currently I have notes on / am working on notes for:
 
 # What will (probably) come?
 
-Probably nothing. Typing up the notes currently simply takes too much time, resulting in little time left to actually spent on the subject. I might finish the summaries I am currently _working_ on, but after that I will most likely stop and revert to good 'ol paper notes.
+Probably nothing. Typing up the notes currently simply takes too much time, resulting in little time left to actually spent on the subject. I might finish the summaries I am currently _working_ on, but after that I will most likely stop and revert to good old paper notes.
