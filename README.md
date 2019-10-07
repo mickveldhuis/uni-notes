@@ -12,9 +12,5 @@ Currently I have notes on / am working on notes for:
 - Mathematical physics (covering series, 2nd order differential equations, fourier series / transforms, and partial differential equations)
 
 # What will (probably) come?
-Subjects that I will probably add to this collection are 
 
-- Complex analysis
-- Waves & optics
-- Numerical methods
-- And more...
+Probably nothing. Typing up the notes currently simply takes too much time, resulting in little time left to actually spent on the subject. I might finish the summaries I am currently _working_ on, but after that I will most likely stop and revert to good 'ol paper notes.
