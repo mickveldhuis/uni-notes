@@ -10,6 +10,7 @@ Currently I have notes on / am working on notes for:
 - Statistics (from a bayesian perspective)
 - Observational astronomy (covering a range of subjects relevant to astronomical observations. Such as coordinate systems, time, optics, etc.)
 - Mathematical physics (covering series, 2nd order differential equations, fourier series / transforms, and partial differential equations)
+- Numerical methods (covering subjects from random number generation to numerically solving ODEs)
 
 # What will (probably) come?
 
